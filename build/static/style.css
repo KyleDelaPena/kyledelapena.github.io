@@ -1,0 +1,235 @@
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --accent-color: #00ff88;
+    --text-main: #f0f6fc;
+    --text-dim: #8b949e;
+    --border-color: #30363d;
+    --btn-bg: #238636;
+    --btn-hover: #2ea043;
+}
+
+* { box-sizing: border-box; }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+.nav-bar {
+    background: var(--card-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nav-bar a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 600;
+}
+
+.page-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.info-section {
+    margin-bottom: 25px;
+}
+
+h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
+
+.experience-card {
+    margin-bottom: 20px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.role-title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text-main);
+}
+
+.date-range {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.org-name {
+    margin: 0 0 15px 0;
+    font-weight: 600;
+    color: var(--text-dim);
+}
+
+.bullet-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.bullet-list li {
+    padding: 4px 0;
+    color: var(--text-dim);
+    line-height: 1.5;
+}
+
+.profile-header-clean {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-main-clean {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.avatar-container-clean {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-color);
+    flex-shrink: 0;
+}
+
+.profile-avatar-clean {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name-clean { margin: 0; font-size: 2.2rem; }
+.headline-clean { font-size: 1.1rem; margin: 8px 0; }
+.location-clean { color: var(--text-dim); margin-bottom: 15px; font-size: 0.9rem; }
+
+.btn-connect {
+    display: inline-block;
+    background-color: var(--btn-bg);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.btn-connect:hover {
+    background-color: var(--btn-hover);
+}
+
+.profile-orgs-clean {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.org-item-clean {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.org-logo-clean {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+}
+
+.skills-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.skills-list li {
+    padding: 5px 0;
+    color: var(--text-main);
+}
+
+/* Mobile Fix: Only triggers on screens smaller than 768px */
+@media (max-width: 768px) {
+    .profile-header-clean {
+        flex-direction: column; /* Stacks the profile and logos vertically */
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .profile-main-clean {
+        flex-direction: column; /* Stacks photo above the name */
+        gap: 15px;
+    }
+
+    .profile-orgs-clean {
+        margin-top: 20px;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .name-clean {
+        font-size: 1.8rem; /* Slightly smaller text so it doesn't wrap weirdly */
+    }
+
+    .avatar-container-clean {
+        margin-right: 0; /* Centers the photo */
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-header-clean {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-main-clean {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .profile-orgs-clean {
+        margin-top: 20px;
+        justify-content: center;
+    }
+}
