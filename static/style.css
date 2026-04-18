@@ -186,50 +186,31 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     color: var(--text-main);
 }
 
-/* Mobile Fix: Only triggers on screens smaller than 768px */
 @media (max-width: 768px) {
     .profile-header-clean {
-        flex-direction: column; /* Stacks the profile and logos vertically */
+        flex-direction: column;
         align-items: center;
         text-align: center;
         padding: 20px;
     }
 
     .profile-main-clean {
-        flex-direction: column; /* Stacks photo above the name */
+        flex-direction: column;
         gap: 15px;
     }
 
     .profile-orgs-clean {
-        margin-top: 20px;
+        margin-top: 25px;
         align-items: center;
         width: 100%;
         justify-content: center;
     }
 
     .name-clean {
-        font-size: 1.8rem; /* Slightly smaller text so it doesn't wrap weirdly */
+        font-size: 1.8rem;
     }
 
     .avatar-container-clean {
-        margin-right: 0; /* Centers the photo */
-    }
-}
-
-@media (max-width: 768px) {
-    .profile-header-clean {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .profile-main-clean {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .profile-orgs-clean {
-        margin-top: 20px;
-        justify-content: center;
+        margin-right: 0;
     }
 }

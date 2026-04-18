@@ -4,31 +4,30 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html', 
+    return render_template('index.html',
         name="Kyle Dela Pena",
         title="Revenue Assurance Analyst",
         company="Prime Communications",
         location="Pearland, Texas, United States",
         linkedin_url="https://www.linkedin.com/in/kyle-dela-pena-321bb41b5",
-        profile_pic="ProfilePic.jpg",
+        profile_pic="ProfilePic.png",
         prime_logo="prime_logo.jpg",
         uh_logo="university_of_houston_logo.jpg",
         about_text="I am a Revenue Assurance Analyst at Prime Communications, where I bridge the gap between complex data systems and financial integrity. With a background in Computer Information Science, I specialize in using SQL and database management to ensure data accuracy and operational excellence.",
         skills=[
-            "Database Administration (MySQL, AWS RDS)", 
+            "Database Administration (MySQL, AWS RDS)",
             "Advanced SQL & Query Optimization",
-            "Cloud Architecture & System Scalability", 
-            "Financial Risk Mitigation", 
+            "Cloud Architecture & System Scalability",
+            "Financial Risk Mitigation",
             "Data Analysis & Visualization",
-            "Full-Stack Development (Node.js, Vue.js)", 
+            "Full-Stack Development (Node.js, Vue.js)",
             "Technical Documentation & ERD Design",
             "Version Control (Git)"
         ]
     )
 
-@app.route('/experience')
+@app.route('/experience.html')
 def experience():
-    # This list contains all 4 of your professional roles
     exp_data = [
         {
             "role": "Revenue Assurance Analyst",
@@ -71,7 +70,21 @@ def experience():
             ]
         }
     ]
-    return render_template('experience.html', experience=exp_data)
+    return render_template('experience.html', name="Kyle Dela Pena", experience=exp_data)
+
+@app.route('/education.html')
+def education():
+    edu_data = {
+        "school": "University of Houston",
+        "degree": "Bachelor of Science, Computer and Information Systems Security/Information Assurance",
+        "period": "Aug 2020 – May 2023",
+        "honors": [
+            "Cum Laude",
+            "Academic Excellence Scholarship Recipient",
+            "Dean's List"
+        ]
+    }
+    return render_template('education.html', name="Kyle Dela Pena", edu=edu_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
