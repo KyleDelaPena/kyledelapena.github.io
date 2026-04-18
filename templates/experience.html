@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | Kyle Dela Pena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="/">Home</a>
+            <a href="/experience">Experience</a>
+        </div>
+    </nav>
+    <div class="page-container">
+        <div class="content-wrapper">
+            <section class="info-section">
+                <h2>Experience</h2>
+                {% for item in experience %}
+                <div class="card experience-card">
+                    <div class="card-header">
+                        <h3 class="role-title">{{ item.role }}</h3>
+                        <span class="date-range">{{ item.period }}</span>
+                    </div>
+                    <p class="org-name">{{ item.org }}</p>
+                    <ul class="bullet-list">
+                        {% for bullet in item.bullets %}
+                        <li>{{ bullet }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </section>
+        </div>
+    </div>
+</body>
+</html>
