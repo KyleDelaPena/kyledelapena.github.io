@@ -2,9 +2,8 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Configuration for static site generation
+app.config['FREEZER_DESTINATION_IGNORE'] = ['.git*', 'CNAME']
 app.config['FREEZER_RELATIVE_URLS'] = True
-app.config['FREEZER_DESTINATION'] = 'build'
 
 @app.route('/')
 def home():

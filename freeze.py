@@ -10,6 +10,10 @@ app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
 
 freezer = Freezer(app)
 
+# ADD THIS LINE BELOW THE FREEZER DEFINITION:
+app.config['FREEZER_REMOVE_EXTRA_LINES'] = True # Optional cleanup
+
+
 if __name__ == '__main__':
     print("Freezing the site for GitHub Pages...")
     freezer.freeze()
