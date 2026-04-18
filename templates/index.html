@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }} | Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="/">Home</a>
+            <a href="/experience">Experience</a>
+        </div>
+    </nav>
+    <div class="page-container">
+        <div class="content-wrapper">
+            <header class="profile-header-clean">
+                <div class="profile-main-clean">
+                    <div class="avatar-container-clean">
+                        <img src="{{ url_for('static', filename=profile_pic) }}" alt="Profile Picture" class="profile-avatar-clean">
+                    </div>
+                    <div class="profile-info-clean">
+                        <h1 class="name-clean">{{ name }} <span class="verify-icon">✔</span></h1>
+                        <p class="headline-clean">{{ title }} @ {{ company }}</p>
+                        <p class="location-clean">{{ location }}</p>
+                        <a href="{{ linkedin_url }}" class="btn-connect" target="_blank">Connect with me</a>
+                    </div>
+                </div>
+                <div class="profile-orgs-clean">
+                    <div class="org-item-clean">
+                        <img src="{{ url_for('static', filename=prime_logo) }}" alt="Prime Logo" class="org-logo-clean">
+                        <span>{{ company }}</span>
+                    </div>
+                    <div class="org-item-clean">
+                        <img src="{{ url_for('static', filename=uh_logo) }}" alt="UH Logo" class="org-logo-clean">
+                        <span>University of Houston</span>
+                    </div>
+                </div>
+            </header>
+
+            <section class="info-section">
+                <h2>About</h2>
+                <div class="card">
+                    <p>{{ about_text }}</p>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Skills</h2>
+                <div class="card">
+                    <ul class="skills-list">
+                        {% for skill in skills %}
+                        <li>{{ skill }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
