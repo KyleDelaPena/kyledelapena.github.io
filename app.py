@@ -46,29 +46,33 @@ def experience():
             "period": "Apr 2026 - Present",
             "bullets": [
                 "Revenue Integrity & Analysis: Perform end-to-end reconciliation of revenue streams to identify and rectify discrepancies, ensuring that all billable services are accurately captured and processed.",
-                "Data-Driven Problem Solving: Utilize advanced data tools (SQL, Excel) to audit billing systems and contracts, reducing financial risk and ensuring audit compliance.",
-                "Process Optimization: Collaborate with IT and Finance departments to streamline financial reporting and automate data validation workflows."
+                "Data-Driven Problem Solving: Utilize advanced data tools (SQL, Excel) to audit billing systems and contracts, reducing financial risk and improving margin accuracy.",
+                "Cross-Functional Collaboration: Partner with IT, Finance, and Operations departments to investigate root causes of revenue loss and implement long-term control enhancements.",
+                "Audit & Compliance: Conduct regular spot checks and sanity audits on monthly billing cycles to ensure 100% data integrity and compliance with financial regulations.",
+                "Process Optimization: Identify 'leakage' patterns and provide actionable insights to senior leadership to streamline the revenue cycle and optimize sustainable costs.",
+                "Managed complex data validation projects, leveraging SQL and database management principles to audit large-scale telecommunications datasets."
             ]
         },
         {
-            "role": "Database Administrator",
+            "role": "Database Administrator & Cloud Architect",
             "org": "Chonche Café",
             "period": "Jan 2023 - May 2023",
             "bullets": [
-                "Architected and managed a production-scale MySQL database on AWS RDS, ensuring 99.9% availability for critical business operations.",
-                "Implemented automated backup strategies and Point-in-Time Recovery (PITR) protocols to safeguard data against hardware failure or accidental loss.",
-                "Modernized legacy schemas and optimized stored procedures, significantly improving query performance and database scalability."
+                "Architected and managed a MySQL production database on AWS RDS, utilizing Multi-AZ deployment to increase system uptime from 95% to 99.5%.",
+                "Optimized SQL query execution plans and implemented indexing strategies, reducing average server response times by 40% and decreasing monthly cloud compute costs by 20%.",
+                "Automated daily database backups and point-in-time recovery (PITR) protocols, ensuring 100% data durability and zero-loss during high-traffic periods.",
+                "Developed stored procedures to automate weekly inventory reporting, saving 10+ hours of manual data entry per month."
             ]
         },
         {
-            "role": "IT Support / Clerical Tester",
-            "org": "Administrative Services",
-            "period": "Feb 2022 - Mar 2022",
+            "role": "Junior Systems & Database Analyst",
+            "org": "Houston Hot Breads",
+            "period": "Jan 2021 - Dec 2022",
             "bullets": [
-                "Developed proficiency in organizational filing systems and alphabetical sequencing.",
-                "Maintained technical documentation and ensured data integrity for administrative records.",
-                "Developed technical documentation using Flow Diagrams (DFDs) and UI mockups, accelerating the project approval cycle by 30%.",
-                "Conducted technical feasibility studies for database scalability, evaluating constraints and mitigating risks related to data integrity."
+                "Performed SQL performance audits on existing customer loyalty systems, identifying bottlenecks and refactoring queries to improve transaction speed by 20%.",
+                "Analyzed business requirements to design a modernized MySQL schema that supported a 15% increase in concurrent user sessions.",
+                "Created detailed Data Flow Diagrams (DFDs) and UI mockups, accelerating the project approval cycle by 30% through effective stakeholder communication.",
+                "Conducted technical feasibility studies for database scalability, evaluating constraints and mitigating risks related to data integrity and system migration."
             ]
         },
         {
@@ -81,7 +85,7 @@ def experience():
                 "Led the migration of legacy nonprofit data into a centralized MySQL relational database, improving data consistency and reporting accuracy by 45%.",
                 "Designed complex SQL joins and matching logic to synchronize 5,000+ client records, increasing successful cross-platform data matching rates by 30%.",
                 "Engineered a Node.js backend to facilitate real-time CRUD operations on the MySQL database, reducing manual data reconciliation work by 40%.",
-                "Maintained technical documentation and ERDs in a team-based Git environment, ensuring seamless collaboration."
+                "Maintained technical documentation and ERDs in a team-based Git environment, ensuring seamless collaboration and version control for database schemas."
             ]
         }
     ]
