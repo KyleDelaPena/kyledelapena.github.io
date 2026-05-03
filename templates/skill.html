@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ skill.title }} | Kyle Dela Pena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('experience') }}">Experience</a>
+            <a href="{{ url_for('education') }}">Education</a>
+            <a href="{{ url_for('projects') }}">Projects</a>
+            <a href="{{ url_for('case_studies') }}">Case Studies</a>
+            <a href="{{ url_for('toolkit') }}">Toolkit</a>
+        </div>
+    </nav>
+    <div class="page-container">
+        <div class="content-wrapper">
+            <section class="skill-hero">
+                <a href="{{ url_for('home') }}" class="back-link">Back to skills</a>
+                <p class="eyebrow">Skill in action</p>
+                <h1>{{ skill.title }}</h1>
+                <p class="skill-summary">{{ skill.summary }}</p>
+            </section>
+
+            <section class="skill-grid">
+                <div class="card skill-panel">
+                    <h2>Scenario</h2>
+                    <p>{{ skill.scenario }}</p>
+                </div>
+                <div class="card skill-panel impact-panel">
+                    <h2>Outcome</h2>
+                    <p>{{ skill.impact }}</p>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Real-World Business Example</h2>
+                <div class="card business-example-card">
+                    <p>{{ skill.business_example }}</p>
+                    <ul class="business-step-list">
+                        {% for step in skill.business_steps %}
+                        <li>{{ step }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>How I Apply It</h2>
+                <div class="card">
+                    <ol class="action-list">
+                        {% for action in skill.actions %}
+                        <li>{{ action }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Proof Points</h2>
+                <div class="evidence-grid">
+                    {% for item in skill.evidence %}
+                    <div class="evidence-card">{{ item }}</div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>More Skills</h2>
+                <div class="card compact-card">
+                    <ul class="skills-list compact-skills-list">
+                        {% for item in skills %}
+                        {% if item.slug != skill.slug %}
+                        <li>
+                            <a class="skill-link" href="{{ url_for('skill_detail', slug=item.slug) }}">
+                                <span>{{ item.title }}</span>
+                                <span class="skill-arrow">Open</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

@@ -10,8 +10,12 @@
 <body>
     <nav class="nav-bar">
         <div class="nav-container">
-            <a href="/">Home</a>
-            <a href="/experience">Experience</a>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('experience') }}">Experience</a>
+            <a href="{{ url_for('education') }}">Education</a>
+            <a href="{{ url_for('projects') }}">Projects</a>
+            <a href="{{ url_for('case_studies') }}">Case Studies</a>
+            <a href="{{ url_for('toolkit') }}">Toolkit</a>
         </div>
     </nav>
     <div class="page-container">
@@ -22,10 +26,13 @@
                         <img src="{{ url_for('static', filename=profile_pic) }}" alt="Profile Picture" class="profile-avatar-clean">
                     </div>
                     <div class="profile-info-clean">
-                        <h1 class="name-clean">{{ name }} <span class="verify-icon">✔</span></h1>
-                        <p class="headline-clean">{{ title }} @ {{ company }}</p>
+                        <h1 class="name-clean">{{ name }} <span class="verify-icon">&#10003;</span></h1>
+                        <p class="headline-clean">{{ title }}</p>
+                        <p class="headline-clean">{{ company }}</p>
                         <p class="location-clean">{{ location }}</p>
-                        <a href="{{ linkedin_url }}" class="btn-connect" target="_blank">Connect with me</a>
+                        <div class="profile-actions">
+                            <a href="{{ linkedin_url }}" class="btn-connect" target="_blank">LinkedIn</a>
+                        </div>
                     </div>
                 </div>
                 <div class="profile-orgs-clean">
@@ -44,6 +51,44 @@
                 <h2>About</h2>
                 <div class="card">
                     <p>{{ about_text }}</p>
+                    <p class="core-expertise"><strong>Core Expertise:</strong> {{ core_expertise }}</p>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>What I'm Looking For</h2>
+                <div class="card">
+                    <p>{{ career_focus }}</p>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Business Impact</h2>
+                <div class="metric-grid">
+                    {% for metric in metrics %}
+                    <div class="metric-card">
+                        <span>{{ metric.value }}</span>
+                        <p>{{ metric.label }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Featured Portfolio</h2>
+                <div class="feature-link-grid">
+                    <a href="{{ url_for('projects') }}" class="feature-link-card">
+                        <span>Projects</span>
+                        <p>Business-focused builds across SQL, data systems, cloud databases, and full-stack workflows.</p>
+                    </a>
+                    <a href="{{ url_for('case_studies') }}" class="feature-link-card">
+                        <span>Case Studies</span>
+                        <p>Deeper examples showing how technical analysis connects to revenue, risk, and operations.</p>
+                    </a>
+                    <a href="{{ url_for('toolkit') }}" class="feature-link-card">
+                        <span>Technical Toolkit</span>
+                        <p>A recruiter-friendly scan of languages, databases, frameworks, analysis tools, and learning goals.</p>
+                    </a>
                 </div>
             </section>
 
@@ -52,7 +97,12 @@
                 <div class="card">
                     <ul class="skills-list">
                         {% for skill in skills %}
-                        <li>{{ skill }}</li>
+                        <li>
+                            <a class="skill-link" href="{{ url_for('skill_detail', slug=skill.slug) }}">
+                                <span>{{ skill.title }}</span>
+                                <span class="skill-arrow">View in action</span>
+                            </a>
+                        </li>
                         {% endfor %}
                     </ul>
                 </div>

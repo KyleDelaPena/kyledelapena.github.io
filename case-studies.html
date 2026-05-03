@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | Kyle Dela Pena</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html">Home</a>
+            <a href="experience.html">Experience</a>
+            <a href="education.html">Education</a>
+            <a href="projects.html">Projects</a>
+            <a href="case-studies.html">Case Studies</a>
+            <a href="toolkit.html">Toolkit</a>
+        </div>
+    </nav>
+    <div class="page-container">
+        <div class="content-wrapper">
+            <section class="skill-hero">
+                <p class="eyebrow">Business examples</p>
+                <h1>Case Studies</h1>
+                <p class="skill-summary">Each case study connects a technical approach to a business outcome, so employers can see how I think beyond the tool and into the operational result.</p>
+            </section>
+
+            
+            <article class="card case-study-card">
+                <h2>Reducing Revenue Leakage With SQL Reconciliation</h2>
+                <div class="case-study-grid">
+                    <div>
+                        <h3>Problem</h3>
+                        <p>Revenue activity can be created in one system but fail to appear correctly in billing outputs, causing underbilling and margin risk.</p>
+                    </div>
+                    <div>
+                        <h3>Approach</h3>
+                        <p>Compare source activations, account status, product catalog, invoice lines, cancellations, and adjustments. Build exception logic that identifies active services with no billable invoice line, then rank the exceptions by expected financial impact.</p>
+                    </div>
+                    <div>
+                        <h3>Outcome</h3>
+                        <p>Finance receives a recoverable revenue list while operations receives a prevention pattern by store, product, and process step.</p>
+                    </div>
+                </div>
+                <div class="tag-row">
+                    
+                    <span>SQL joins</span>
+                    
+                    <span>Excel review</span>
+                    
+                    <span>Exception reporting</span>
+                    
+                    <span>Root-cause analysis</span>
+                    
+                </div>
+            </article>
+            
+            <article class="card case-study-card">
+                <h2>Modernizing Legacy Data for Better Reporting</h2>
+                <div class="case-study-grid">
+                    <div>
+                        <h3>Problem</h3>
+                        <p>Inconsistent legacy fields make it difficult to trust reports or safely migrate data into a new system.</p>
+                    </div>
+                    <div>
+                        <h3>Approach</h3>
+                        <p>Profile the legacy dataset, define clean target tables, map old values into canonical categories, remove duplicate records, and validate totals before and after migration.</p>
+                    </div>
+                    <div>
+                        <h3>Outcome</h3>
+                        <p>The organization gains cleaner reporting, easier future development, and a documented schema that new team members can understand.</p>
+                    </div>
+                </div>
+                <div class="tag-row">
+                    
+                    <span>MySQL</span>
+                    
+                    <span>ERD design</span>
+                    
+                    <span>Data profiling</span>
+                    
+                    <span>Validation queries</span>
+                    
+                </div>
+            </article>
+            
+            <article class="card case-study-card">
+                <h2>Automating Recurring Operational Reports</h2>
+                <div class="case-study-grid">
+                    <div>
+                        <h3>Problem</h3>
+                        <p>Manual weekly reports waste analyst time and increase the chance of inconsistent calculations.</p>
+                    </div>
+                    <div>
+                        <h3>Approach</h3>
+                        <p>Move repeatable report logic into stored procedures, schedule the reporting job, log each run, and add checks for unusual totals or row counts.</p>
+                    </div>
+                    <div>
+                        <h3>Outcome</h3>
+                        <p>The business gets faster reporting, fewer manual steps, and better visibility when something in the data changes unexpectedly.</p>
+                    </div>
+                </div>
+                <div class="tag-row">
+                    
+                    <span>Stored procedures</span>
+                    
+                    <span>Scheduled jobs</span>
+                    
+                    <span>Run logs</span>
+                    
+                    <span>PITR awareness</span>
+                    
+                </div>
+            </article>
+            
+        </div>
+    </div>
+</body>
+</html>

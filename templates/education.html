@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience | Kyle Dela Pena</title>
+    <title>Education | Kyle Dela Pena</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -21,14 +21,14 @@
     <div class="page-container">
         <div class="content-wrapper">
             <section class="info-section">
-                <h2>Experience</h2>
-                {% for item in experience %}
+                <h2>Education</h2>
+                {% for item in education %}
                 <div class="card experience-card">
                     <div class="card-header">
-                        <h3 class="role-title">{{ item.role }}</h3>
+                        <h3 class="role-title">{{ item.school }}</h3>
                         <span class="date-range">{{ item.period }}</span>
                     </div>
-                    <p class="org-name">{{ item.org }}</p>
+                    <p class="org-name">{{ item.degree }}</p>
                     <ul class="bullet-list">
                         {% for bullet in item.bullets %}
                         <li>{{ bullet }}</li>

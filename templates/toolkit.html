@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Toolkit | Kyle Dela Pena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('experience') }}">Experience</a>
+            <a href="{{ url_for('education') }}">Education</a>
+            <a href="{{ url_for('projects') }}">Projects</a>
+            <a href="{{ url_for('case_studies') }}">Case Studies</a>
+            <a href="{{ url_for('toolkit') }}">Toolkit</a>
+        </div>
+    </nav>
+    <div class="page-container">
+        <div class="content-wrapper">
+            <section class="skill-hero">
+                <p class="eyebrow">Recruiter scan</p>
+                <h1>Technical Toolkit</h1>
+                <p class="skill-summary">A quick view of the tools, platforms, and systems I use to connect business workflows with reliable technical execution.</p>
+            </section>
+
+            <section class="toolkit-grid">
+                {% for group in toolkit %}
+                <div class="card toolkit-card">
+                    <h2>{{ group.group }}</h2>
+                    <div class="tag-row">
+                        {% for item in group["items"] %}
+                        <span>{{ item }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </section>
+
+            <section class="info-section">
+                <h2>Certifications & Learning Goals</h2>
+                <div class="cert-grid">
+                    {% for cert in certifications %}
+                    <div class="card cert-card">
+                        <div class="card-header">
+                            <h3 class="role-title">{{ cert.title }}</h3>
+                            <span class="date-range">{{ cert.status }}</span>
+                        </div>
+                        <p>{{ cert.reason }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
