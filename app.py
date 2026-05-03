@@ -296,7 +296,7 @@ SKILLS = [
 def get_home_data():
     return {
         "name": "Kyle Dela Pena",
-        "title": "Revenue Assurance Analyst | CIS Graduate | SQL, Database Systems & Financial Data Integrity",
+        "title": "Revenue Assurance Analyst @ Prime Communications | SQL & Data Integrity | Database Administration | Financial Risk Mitigation | Full Stack Development",
         "company": "Prime Communications",
         "location": "Pearland, Texas, United States",
         "linkedin_url": "https://www.linkedin.com/in/kyle-dela-pena-321bb41b5",
