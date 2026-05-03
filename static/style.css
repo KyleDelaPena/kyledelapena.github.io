@@ -466,6 +466,220 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     padding: 0;
 }
 
+.project-visual {
+    background: #0d1117;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    min-height: 210px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.visual-toolbar {
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-dim);
+    display: flex;
+    font-size: 0.85rem;
+    justify-content: space-between;
+    margin: -4px 0 18px;
+    padding-bottom: 12px;
+}
+
+.dashboard-kpis {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-bottom: 18px;
+}
+
+.dashboard-kpis div {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.dashboard-kpis strong {
+    color: var(--accent-color);
+    display: block;
+    font-size: 1.45rem;
+    margin-bottom: 4px;
+}
+
+.dashboard-kpis span,
+.schema-flow span {
+    color: var(--text-dim);
+    display: block;
+    font-size: 0.82rem;
+}
+
+.bar-chart {
+    align-items: end;
+    background: rgba(0, 255, 136, 0.05);
+    border: 1px solid rgba(0, 255, 136, 0.18);
+    border-radius: 8px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    height: 76px;
+    padding: 12px;
+}
+
+.bar-chart span {
+    background: linear-gradient(180deg, var(--accent-color), #238636);
+    border-radius: 6px 6px 2px 2px;
+    display: block;
+}
+
+.code-window {
+    background: #05080d;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-dim);
+    font-family: Consolas, Monaco, monospace;
+    min-height: 168px;
+    padding: 18px;
+}
+
+.code-window p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin: 10px 0 0;
+}
+
+.code-window b {
+    color: var(--accent-color);
+}
+
+.code-dot-row {
+    display: flex;
+    gap: 7px;
+    margin-bottom: 16px;
+}
+
+.code-dot-row span {
+    background: var(--border-color);
+    border-radius: 50%;
+    display: block;
+    height: 10px;
+    width: 10px;
+}
+
+.schema-flow,
+.cloud-diagram {
+    align-items: center;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr auto 1fr;
+    min-height: 168px;
+}
+
+.schema-flow > div:not(.flow-arrow),
+.cloud-node {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.schema-flow strong,
+.cloud-node {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.flow-arrow {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.app-mockup {
+    background: #05080d;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 92px 1fr;
+    min-height: 168px;
+    padding: 16px;
+}
+
+.mock-sidebar {
+    background: var(--card-bg);
+    border-radius: 8px;
+    display: grid;
+    gap: 12px;
+    padding: 14px;
+}
+
+.mock-sidebar span,
+.mock-field,
+.mock-buttons span {
+    background: var(--border-color);
+    border-radius: 999px;
+    display: block;
+}
+
+.mock-sidebar span {
+    height: 12px;
+}
+
+.mock-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.mock-content strong {
+    display: block;
+    margin-bottom: 18px;
+}
+
+.mock-field {
+    height: 14px;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.mock-field.short {
+    width: 62%;
+}
+
+.mock-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.mock-buttons span {
+    background: rgba(0, 255, 136, 0.35);
+    height: 28px;
+    width: 86px;
+}
+
+.cloud-diagram {
+    grid-template-columns: 1fr 42px 1fr 42px 1fr;
+}
+
+.cloud-node {
+    text-align: center;
+}
+
+.cloud-node.primary {
+    border-color: rgba(0, 255, 136, 0.45);
+    color: var(--accent-color);
+}
+
+.cloud-line {
+    background: var(--accent-color);
+    height: 2px;
+    opacity: 0.6;
+}
+
 .project-detail-grid,
 .case-study-grid {
     display: grid;
@@ -654,5 +868,32 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     .case-study-card h2,
     .toolkit-card h2 {
         font-size: 1.18rem;
+    }
+
+    .project-visual {
+        min-height: auto;
+        padding: 16px;
+    }
+
+    .dashboard-kpis,
+    .schema-flow,
+    .cloud-diagram,
+    .app-mockup {
+        grid-template-columns: 1fr;
+    }
+
+    .flow-arrow {
+        transform: rotate(90deg);
+        text-align: center;
+    }
+
+    .cloud-line {
+        height: 26px;
+        justify-self: center;
+        width: 2px;
+    }
+
+    .mock-sidebar {
+        display: none;
     }
 }

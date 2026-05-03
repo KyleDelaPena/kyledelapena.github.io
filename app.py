@@ -319,6 +319,7 @@ PROJECTS = [
     {
         "title": "Revenue Leakage Detection Dashboard",
         "category": "Revenue Assurance",
+        "visual": "dashboard",
         "problem": "Billing, activation, and adjustment data can drift across systems, making missed revenue hard to see before month-end close.",
         "built": "A dashboard concept that reconciles active services against invoice lines, highlights missing billables, and ranks exceptions by estimated exposure.",
         "tools": ["SQL", "Excel", "Revenue reconciliation", "Exception reporting"],
@@ -328,6 +329,7 @@ PROJECTS = [
     {
         "title": "SQL Billing Reconciliation Audit",
         "category": "SQL & Data Analysis",
+        "visual": "sql",
         "problem": "Finance needs a repeatable way to identify unusual credits, missing charges, and high-risk billing adjustments.",
         "built": "A parameterized SQL audit workflow joining customers, invoices, payments, products, stores, and adjustments into one reviewable result set.",
         "tools": ["MySQL", "Stored procedures", "Joins", "Index review"],
@@ -337,6 +339,7 @@ PROJECTS = [
     {
         "title": "Legacy Data Migration & Schema Modernization",
         "category": "Database Systems",
+        "visual": "migration",
         "problem": "Legacy customer records often contain duplicate people, inconsistent product names, and free-text fields that slow reporting.",
         "built": "A migration plan with source profiling, field mapping, normalized target tables, validation queries, and parallel report checks.",
         "tools": ["MySQL", "ERD design", "Data mapping", "Validation queries"],
@@ -346,6 +349,7 @@ PROJECTS = [
     {
         "title": "CRUD Operations Business App",
         "category": "Full-Stack Development",
+        "visual": "crud",
         "problem": "Teams using spreadsheets for operational records lose track of ownership, status, follow-up dates, and data quality.",
         "built": "A Node.js, Express, Vue, and MongoDB application pattern for creating, searching, updating, and validating business records.",
         "tools": ["Node.js", "Express", "Vue.js", "MongoDB", "Bootstrap"],
@@ -355,6 +359,7 @@ PROJECTS = [
     {
         "title": "AWS RDS High-Availability Database Setup",
         "category": "Cloud & Database Administration",
+        "visual": "cloud",
         "problem": "A single unmanaged database server creates outage and recovery risk for business-critical data.",
         "built": "A production-minded AWS RDS MySQL architecture with Multi-AZ deployment, automated backups, access review, monitoring, and restore documentation.",
         "tools": ["AWS RDS", "MySQL", "Multi-AZ", "Backups", "PITR"],

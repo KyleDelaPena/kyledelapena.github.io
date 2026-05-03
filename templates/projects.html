@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Kyle Dela Pena</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=3">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=4">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -34,6 +34,66 @@
                             <p class="eyebrow">{{ project.category }}</p>
                             <h2>{{ project.title }}</h2>
                         </div>
+                    </div>
+                    <div class="project-visual project-visual-{{ project.visual }}" aria-label="{{ project.title }} visual mockup">
+                        {% if project.visual == "dashboard" %}
+                        <div class="visual-toolbar">
+                            <span>Revenue Exceptions</span>
+                            <span>Month Close</span>
+                        </div>
+                        <div class="dashboard-kpis">
+                            <div><strong>$42K</strong><span>Exposure</span></div>
+                            <div><strong>128</strong><span>Exceptions</span></div>
+                            <div><strong>7</strong><span>Stores</span></div>
+                        </div>
+                        <div class="bar-chart">
+                            <span style="height: 42%"></span>
+                            <span style="height: 78%"></span>
+                            <span style="height: 55%"></span>
+                            <span style="height: 88%"></span>
+                            <span style="height: 64%"></span>
+                        </div>
+                        {% elif project.visual == "sql" %}
+                        <div class="code-window">
+                            <div class="code-dot-row"><span></span><span></span><span></span></div>
+                            <p><b>SELECT</b> account_id, invoice_id, adjustment_amt</p>
+                            <p><b>FROM</b> billing_audit</p>
+                            <p><b>WHERE</b> risk_flag = 'HIGH'</p>
+                            <p><b>ORDER BY</b> exposure DESC;</p>
+                        </div>
+                        {% elif project.visual == "migration" %}
+                        <div class="schema-flow">
+                            <div>
+                                <strong>Legacy Data</strong>
+                                <span>customers_raw</span>
+                                <span>billing_notes</span>
+                            </div>
+                            <div class="flow-arrow">&rarr;</div>
+                            <div>
+                                <strong>Modern Schema</strong>
+                                <span>customers</span>
+                                <span>subscriptions</span>
+                            </div>
+                        </div>
+                        {% elif project.visual == "crud" %}
+                        <div class="app-mockup">
+                            <div class="mock-sidebar"><span></span><span></span><span></span></div>
+                            <div class="mock-content">
+                                <strong>Case Queue</strong>
+                                <span class="mock-field"></span>
+                                <span class="mock-field short"></span>
+                                <div class="mock-buttons"><span></span><span></span></div>
+                            </div>
+                        </div>
+                        {% elif project.visual == "cloud" %}
+                        <div class="cloud-diagram">
+                            <div class="cloud-node">App</div>
+                            <div class="cloud-line"></div>
+                            <div class="cloud-node primary">RDS</div>
+                            <div class="cloud-line"></div>
+                            <div class="cloud-node">Backup</div>
+                        </div>
+                        {% endif %}
                     </div>
                     <div class="project-detail-grid">
                         <div>
