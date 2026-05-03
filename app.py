@@ -371,6 +371,7 @@ PROJECTS = [
 CASE_STUDIES = [
     {
         "title": "Reducing Revenue Leakage With SQL Reconciliation",
+        "visual": "reconciliation",
         "problem": "Revenue activity can be created in one system but fail to appear correctly in billing outputs, causing underbilling and margin risk.",
         "approach": "Compare source activations, account status, product catalog, invoice lines, cancellations, and adjustments. Build exception logic that identifies active services with no billable invoice line, then rank the exceptions by expected financial impact.",
         "tools": ["SQL joins", "Excel review", "Exception reporting", "Root-cause analysis"],
@@ -378,6 +379,7 @@ CASE_STUDIES = [
     },
     {
         "title": "Modernizing Legacy Data for Better Reporting",
+        "visual": "migration",
         "problem": "Inconsistent legacy fields make it difficult to trust reports or safely migrate data into a new system.",
         "approach": "Profile the legacy dataset, define clean target tables, map old values into canonical categories, remove duplicate records, and validate totals before and after migration.",
         "tools": ["MySQL", "ERD design", "Data profiling", "Validation queries"],
@@ -385,6 +387,7 @@ CASE_STUDIES = [
     },
     {
         "title": "Automating Recurring Operational Reports",
+        "visual": "automation",
         "problem": "Manual weekly reports waste analyst time and increase the chance of inconsistent calculations.",
         "approach": "Move repeatable report logic into stored procedures, schedule the reporting job, log each run, and add checks for unusual totals or row counts.",
         "tools": ["Stored procedures", "Scheduled jobs", "Run logs", "PITR awareness"],
