@@ -469,6 +469,15 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
 .project-list {
     display: grid;
     gap: 22px;
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+}
+
+.project-card,
+.case-study-card {
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .project-card h2,
@@ -486,6 +495,8 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     border-radius: 8px;
     margin-bottom: 24px;
     min-height: 210px;
+    max-width: 100%;
+    min-width: 0;
     overflow: hidden;
     padding: 20px;
 }
@@ -706,7 +717,9 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     border: 1px solid rgba(0, 255, 136, 0.2);
     border-radius: 8px;
     margin: 0 0 24px;
+    max-width: 100%;
     min-width: 0;
+    overflow: hidden;
     padding: 20px;
 }
 
@@ -742,6 +755,7 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     display: grid;
     gap: 14px;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    min-width: 0;
 }
 
 .demo-control-grid.compact {
@@ -796,6 +810,7 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     border-radius: 8px;
     color: var(--text-main);
     min-height: 40px;
+    min-width: 0;
     padding: 9px 10px;
     width: 100%;
 }
@@ -1241,10 +1256,14 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
 @media (max-width: 760px) {
     body,
     html {
+        max-width: 100%;
+        overflow-x: hidden;
         width: 100%;
     }
 
     .nav-bar {
+        max-width: 100%;
+        overflow: hidden;
         padding: 12px 0;
         position: sticky;
         top: 0;
@@ -1252,10 +1271,10 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     }
 
     .nav-container {
-        gap: 10px 14px;
+        gap: 10px;
         justify-content: flex-start;
-        overflow-x: auto;
-        padding: 0 14px;
+        overflow-x: hidden;
+        padding: 0 12px;
         scrollbar-width: none;
         white-space: nowrap;
     }
@@ -1275,7 +1294,21 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     }
 
     .page-container {
+        display: block;
+        max-width: 100%;
+        overflow-x: hidden;
         padding: 22px 12px;
+        width: 100%;
+    }
+
+    .content-wrapper,
+    .project-list,
+    .project-card,
+    .case-study-card,
+    .project-card > *,
+    .case-study-card > * {
+        max-width: 100%;
+        min-width: 0;
     }
 
     .card {
@@ -1285,10 +1318,15 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     }
 
     .profile-header-clean,
-    .profile-main-clean,
-    .card-header {
+    .profile-main-clean {
         align-items: center;
         flex-direction: column;
+    }
+
+    .card-header {
+        align-items: flex-start;
+        flex-direction: column;
+        text-align: left;
     }
 
     .profile-header-clean {
@@ -1404,7 +1442,9 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     .project-visual {
         min-height: auto;
         margin-bottom: 18px;
+        max-width: 100%;
         padding: 12px;
+        width: 100%;
     }
 
     .visual-toolbar {
@@ -1467,7 +1507,9 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
 
     .live-demo {
         margin-bottom: 18px;
+        max-width: 100%;
         padding: 14px;
+        width: 100%;
     }
 
     .case-pipeline,
@@ -1522,6 +1564,7 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
 
     .demo-control-grid {
         gap: 10px;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .demo-result-grid {
@@ -1536,6 +1579,9 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
         border: 1px solid var(--border-color);
         border-radius: 8px;
         margin-top: 12px;
+        max-width: 100%;
+        overflow-x: auto;
+        width: 100%;
     }
 
     .demo-table table {
