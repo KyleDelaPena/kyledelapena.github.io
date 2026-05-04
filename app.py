@@ -320,70 +320,70 @@ PROJECTS = [
         "title": "Revenue Leakage Detection Dashboard",
         "category": "Revenue Assurance",
         "visual": "dashboard",
-        "problem": "Billing, activation, and adjustment data can drift across systems, making missed revenue hard to see before month-end close.",
-        "built": "A dashboard concept that reconciles active services against invoice lines, highlights missing billables, and ranks exceptions by estimated exposure.",
+        "problem": "Activated services do not always become invoice lines, so finance needs a fast way to see which accounts may be underbilled before month-end close.",
+        "built": "A reconciliation queue that compares activations against invoice matches, estimates recoverable monthly revenue, and points operations toward the likely process gap.",
         "tools": ["SQL", "Excel", "Revenue reconciliation", "Exception reporting"],
-        "impact": "Gives finance a prioritized recovery queue and gives operations a root-cause view by store, product, and billing period.",
-        "metrics": ["Ranked revenue exceptions", "Store/product variance view", "Recoverable revenue estimate"]
+        "impact": "Helps finance recover missed charges while giving store operations a specific list of accounts, products, and process steps to fix.",
+        "metrics": ["Missing billables", "Recoverable revenue estimate", "Root-cause queue"]
     },
     {
         "title": "SQL Billing Reconciliation Audit",
         "category": "SQL & Data Analysis",
         "visual": "sql",
-        "problem": "Finance needs a repeatable way to identify unusual credits, missing charges, and high-risk billing adjustments.",
-        "built": "A parameterized SQL audit workflow joining customers, invoices, payments, products, stores, and adjustments into one reviewable result set.",
+        "problem": "Manual billing reviews can miss unusual credits, tax gaps, duplicate adjustments, or charges that need approval evidence.",
+        "built": "A reusable SQL audit workflow that filters exception type, exposure threshold, and billing period into a reviewable worklist.",
         "tools": ["MySQL", "Stored procedures", "Joins", "Index review"],
-        "impact": "Makes monthly review more consistent and reduces manual query recreation during billing close.",
-        "metrics": ["Stored audit logic", "High-risk adjustment flags", "Reusable month-end procedure"]
+        "impact": "Gives finance and audit stakeholders a repeatable exception list with owner-ready next actions instead of one-off spreadsheet checks.",
+        "metrics": ["Stored audit logic", "Exception worklist", "Approval evidence review"]
     },
     {
         "title": "Legacy Data Migration & Schema Modernization",
         "category": "Database Systems",
         "visual": "migration",
-        "problem": "Legacy customer records often contain duplicate people, inconsistent product names, and free-text fields that slow reporting.",
-        "built": "A migration plan with source profiling, field mapping, normalized target tables, validation queries, and parallel report checks.",
+        "problem": "Legacy customer and billing records contain duplicates, inconsistent product values, and free-text notes that make migration risky.",
+        "built": "A cutover workflow that profiles source quality, maps legacy fields to normalized tables, and validates totals before reports move to the new schema.",
         "tools": ["MySQL", "ERD design", "Data mapping", "Validation queries"],
-        "impact": "Protects reporting continuity while moving messy data into a cleaner schema that is easier to maintain.",
-        "metrics": ["Target ERD", "Field mapping", "Migration validation report"]
+        "impact": "Protects reporting continuity by proving that customer counts, subscription totals, and revenue totals reconcile before go-live.",
+        "metrics": ["Source quality profile", "Field mapping", "Cutover validation report"]
     },
     {
-        "title": "CRUD Operations Business App",
+        "title": "Operations Case Queue App",
         "category": "Full-Stack Development",
         "visual": "crud",
-        "problem": "Teams using spreadsheets for operational records lose track of ownership, status, follow-up dates, and data quality.",
-        "built": "A Node.js, Express, Vue, and MongoDB application pattern for creating, searching, updating, and validating business records.",
+        "problem": "Revenue, support, or operations teams using spreadsheets lose track of case owners, issue types, priorities, follow-up dates, and closure status.",
+        "built": "A Node.js, Express, Vue, and MongoDB case queue pattern for creating cases, assigning owners, updating workflow status, and keeping records searchable.",
         "tools": ["Node.js", "Express", "Vue.js", "MongoDB", "Bootstrap"],
-        "impact": "Turns manual record maintenance into a structured workflow with validation, filtering, and clearer accountability.",
-        "metrics": ["Validated forms", "Searchable records", "Role-aware update flow"]
+        "impact": "Turns scattered spreadsheet follow-ups into an accountable workflow where managers can see open risk, ownership, and resolution progress.",
+        "metrics": ["Validated case intake", "Owner queue", "Status update flow"]
     },
     {
         "title": "AWS RDS High-Availability Database Setup",
         "category": "Cloud & Database Administration",
         "visual": "cloud",
-        "problem": "A single unmanaged database server creates outage and recovery risk for business-critical data.",
-        "built": "A production-minded AWS RDS MySQL architecture with Multi-AZ deployment, automated backups, access review, monitoring, and restore documentation.",
+        "problem": "A single unmanaged database server creates outage, backup, access, and recovery risk for orders, inventory, and reporting data.",
+        "built": "A production-minded AWS RDS MySQL readiness workflow covering Multi-AZ failover, backup health, restore testing, and load response.",
         "tools": ["AWS RDS", "MySQL", "Multi-AZ", "Backups", "PITR"],
-        "impact": "Improves availability, recovery confidence, and operational governance around core business data.",
-        "metrics": ["99.5% uptime target", "Automated backups", "Tested restore path"]
+        "impact": "Gives the business confidence that core data can stay available during failures and be restored from a documented recovery path.",
+        "metrics": ["Failover readiness", "Automated backups", "Tested restore path"]
     }
 ]
 
 CASE_STUDIES = [
     {
-        "title": "Reducing Revenue Leakage With SQL Reconciliation",
-        "visual": "reconciliation",
-        "problem": "Revenue activity can be created in one system but fail to appear correctly in billing outputs, causing underbilling and margin risk.",
-        "approach": "Compare source activations, account status, product catalog, invoice lines, cancellations, and adjustments. Build exception logic that identifies active services with no billable invoice line, then rank the exceptions by expected financial impact.",
-        "tools": ["SQL joins", "Excel review", "Exception reporting", "Root-cause analysis"],
-        "outcome": "Finance receives a recoverable revenue list while operations receives a prevention pattern by store, product, and process step."
+        "title": "Strengthening Billing Adjustment Controls",
+        "visual": "controls",
+        "problem": "Manual credits and billing adjustments can reduce revenue without a consistent approval trail, creating financial risk and audit cleanup work.",
+        "approach": "Define control rules for high-dollar adjustments, missing approval notes, repeated corrections by the same user, and stale review items. Turn those rules into an exception review cadence with owners and evidence requirements.",
+        "tools": ["Control matrix", "Exception review", "Approval evidence", "Audit readiness"],
+        "outcome": "Finance gains a clearer approval trail, managers know which adjustments need review, and audit support becomes easier because exceptions are tracked with ownership."
     },
     {
-        "title": "Modernizing Legacy Data for Better Reporting",
-        "visual": "migration",
-        "problem": "Inconsistent legacy fields make it difficult to trust reports or safely migrate data into a new system.",
-        "approach": "Profile the legacy dataset, define clean target tables, map old values into canonical categories, remove duplicate records, and validate totals before and after migration.",
-        "tools": ["MySQL", "ERD design", "Data profiling", "Validation queries"],
-        "outcome": "The organization gains cleaner reporting, easier future development, and a documented schema that new team members can understand."
+        "title": "Turning Data Quality Findings Into Action",
+        "visual": "stakeholder",
+        "problem": "Finance, operations, and IT can look at the same data issue differently, which slows resolution when ownership and business impact are unclear.",
+        "approach": "Translate technical findings into department-specific actions: finance receives exposure and control impact, operations receives process patterns, and IT receives system mapping or integration evidence.",
+        "tools": ["Stakeholder brief", "Owner matrix", "Issue tracker", "Business impact summary"],
+        "outcome": "Teams leave with the same evidence, clear ownership, and a follow-up plan instead of debating separate spreadsheets or symptoms."
     },
     {
         "title": "Automating Recurring Operational Reports",

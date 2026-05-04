@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Kyle Dela Pena</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=4">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=6">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -95,6 +95,76 @@
                         </div>
                         {% endif %}
                     </div>
+                    <section class="live-demo" data-demo="{{ project.visual }}">
+                        <div class="demo-header">
+                            <div>
+                                <p class="eyebrow">Live workflow</p>
+                                <h3>{{ project.title }}</h3>
+                            </div>
+                            <output class="demo-status" data-demo-status>Ready</output>
+                        </div>
+
+                        {% if project.visual == "dashboard" %}
+                        <div class="demo-control-grid">
+                            <label>Activated services <input type="range" min="80" max="240" value="164" data-field="active"></label>
+                            <label>Invoice matches <input type="range" min="60" max="240" value="149" data-field="matched"></label>
+                            <label>Avg monthly charge <input type="range" min="25" max="95" value="58" data-field="charge"></label>
+                        </div>
+                        <div class="demo-result-grid">
+                            <div><strong data-output="exceptions">15</strong><span>missing billables</span></div>
+                            <div><strong data-output="exposure">$870</strong><span>monthly recovery target</span></div>
+                            <div><strong data-output="priority">Store follow-up</strong><span>next action</span></div>
+                        </div>
+                        {% elif project.visual == "sql" %}
+                        <div class="demo-control-grid compact">
+                            <label>Audit check
+                                <select data-field="check">
+                                    <option value="credit">Large credit</option>
+                                    <option value="tax">Missing tax</option>
+                                    <option value="duplicate">Duplicate adjustment</option>
+                                    <option value="approval">Missing approval</option>
+                                </select>
+                            </label>
+                            <label>Minimum exposure <input type="range" min="100" max="1200" value="450" step="50" data-field="minimum"></label>
+                        </div>
+                        <div class="demo-table" data-output="table"></div>
+                        {% elif project.visual == "migration" %}
+                        <div class="demo-stepper">
+                            <button type="button" data-action="profile">Profile</button>
+                            <button type="button" data-action="map">Map</button>
+                            <button type="button" data-action="validate">Validate</button>
+                        </div>
+                        <div class="demo-progress"><span data-output="progress"></span></div>
+                        <div class="demo-log" data-output="log">Choose a migration step.</div>
+                        {% elif project.visual == "crud" %}
+                        <form class="demo-form" data-action="add-record">
+                            <input type="text" name="owner" placeholder="Owner" value="A. Rivera" aria-label="Owner">
+                            <select name="issue" aria-label="Issue type">
+                                <option>Billing gap</option>
+                                <option>Client follow-up</option>
+                                <option>Data correction</option>
+                            </select>
+                            <select name="priority" aria-label="Priority">
+                                <option>High</option>
+                                <option>Medium</option>
+                                <option>Low</option>
+                            </select>
+                            <button type="submit">Add</button>
+                        </form>
+                        <div class="demo-table" data-output="records"></div>
+                        {% elif project.visual == "cloud" %}
+                        <div class="demo-stepper">
+                            <button type="button" data-action="traffic">Peak Load</button>
+                            <button type="button" data-action="failover">AZ Failover</button>
+                            <button type="button" data-action="restore">Restore Test</button>
+                        </div>
+                        <div class="demo-result-grid">
+                            <div><strong data-output="uptime">142 ms</strong><span>query response</span></div>
+                            <div><strong data-output="region">AZ-A</strong><span>serving node</span></div>
+                            <div><strong data-output="backup">15 min</strong><span>recovery point</span></div>
+                        </div>
+                        {% endif %}
+                    </section>
                     <div class="project-detail-grid">
                         <div>
                             <h3>Business Problem</h3>
@@ -124,5 +194,6 @@
             </section>
         </div>
     </div>
+    <script src="{{ url_for('static', filename='demo.js') }}?v=2"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Studies | Kyle Dela Pena</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=4">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=8">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -30,7 +30,33 @@
             <article class="card case-study-card">
                 <h2>{{ study.title }}</h2>
                 <div class="case-visual case-visual-{{ study.visual }}" aria-label="{{ study.title }} visual mockup">
-                    {% if study.visual == "reconciliation" %}
+                    {% if study.visual == "controls" %}
+                    <div class="case-pipeline">
+                        <div><strong>Adjust</strong><span>Credit entered</span></div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div><strong>Review</strong><span>Control rule</span></div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div><strong>Evidence</strong><span>Approval trail</span></div>
+                    </div>
+                    <div class="case-impact-strip">
+                        <span>High-dollar credits</span>
+                        <span>Missing approval notes</span>
+                        <span>Owner follow-up</span>
+                    </div>
+                    {% elif study.visual == "stakeholder" %}
+                    <div class="case-pipeline">
+                        <div><strong>Finance</strong><span>Exposure</span></div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div><strong>Operations</strong><span>Process pattern</span></div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div><strong>IT</strong><span>System evidence</span></div>
+                    </div>
+                    <div class="case-impact-strip">
+                        <span>Shared facts</span>
+                        <span>Assigned owners</span>
+                        <span>Follow-up date</span>
+                    </div>
+                    {% elif study.visual == "reconciliation" %}
                     <div class="case-pipeline">
                         <div><strong>Source</strong><span>Activations</span></div>
                         <div class="flow-arrow">&rarr;</div>
@@ -64,6 +90,62 @@
                     </div>
                     {% endif %}
                 </div>
+                <section class="live-demo" data-case-demo="{{ study.visual }}">
+                    <div class="demo-header">
+                        <div>
+                            <p class="eyebrow">Live demo</p>
+                            <h3>{{ study.title }}</h3>
+                        </div>
+                        <output class="demo-status" data-demo-status>Ready</output>
+                    </div>
+
+                    {% if study.visual == "controls" %}
+                    <div class="demo-stepper control-actions">
+                        <button type="button" data-control-view="all">All Adjustments</button>
+                        <button type="button" data-control-view="missing">Missing Evidence</button>
+                        <button type="button" data-control-view="high">High-Dollar</button>
+                        <button type="button" data-control-view="stale">Stale Review</button>
+                    </div>
+                    <div class="control-review-grid" data-output="controlTable"></div>
+                    {% elif study.visual == "stakeholder" %}
+                    <div class="demo-stepper stakeholder-actions">
+                        <button type="button" data-view="all">All Findings</button>
+                        <button type="button" data-view="finance">Finance View</button>
+                        <button type="button" data-view="operations">Ops View</button>
+                        <button type="button" data-view="it">IT View</button>
+                    </div>
+                    <div class="stakeholder-board" data-output="stakeholderTable"></div>
+                    {% elif study.visual == "reconciliation" %}
+                    <div class="demo-control-grid">
+                        <label>Source activations <input type="range" min="75" max="240" value="168" data-field="source"></label>
+                        <label>Billed accounts <input type="range" min="60" max="235" value="151" data-field="billed"></label>
+                        <label>Monthly price <input type="range" min="20" max="90" value="47" data-field="price"></label>
+                    </div>
+                    <div class="demo-result-grid">
+                        <div><strong data-output="gap">17</strong><span>missing billables</span></div>
+                        <div><strong data-output="recovery">$799</strong><span>recovery target</span></div>
+                        <div><strong data-output="risk">Review</strong><span>risk status</span></div>
+                    </div>
+                    {% elif study.visual == "migration" %}
+                    <div class="demo-stepper">
+                        <button type="button" data-action="legacy">Profile Legacy</button>
+                        <button type="button" data-action="clean">Clean Values</button>
+                        <button type="button" data-action="compare">Compare Totals</button>
+                    </div>
+                    <div class="demo-progress"><span data-output="progress"></span></div>
+                    <div class="demo-log" data-output="log">Run a validation stage.</div>
+                    {% elif study.visual == "automation" %}
+                    <div class="demo-stepper">
+                        <button type="button" data-action="extract">Extract</button>
+                        <button type="button" data-action="validate">Validate</button>
+                        <button type="button" data-action="send">Send Report</button>
+                    </div>
+                    <div class="automation-console">
+                        <div class="automation-timeline" data-output="runs"></div>
+                        <div class="demo-log" data-output="runLog">Scheduled job is waiting for the next run.</div>
+                    </div>
+                    {% endif %}
+                </section>
                 <div class="case-study-grid">
                     <div>
                         <h3>Problem</h3>
@@ -87,5 +169,6 @@
             {% endfor %}
         </div>
     </div>
+    <script src="{{ url_for('static', filename='demo.js') }}?v=5"></script>
 </body>
 </html>

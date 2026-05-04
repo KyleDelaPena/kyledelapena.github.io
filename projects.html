@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Kyle Dela Pena</title>
-    <link rel="stylesheet" href="static/style.css?v=4">
+    <link rel="stylesheet" href="static/style.css?v=6">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -55,18 +55,40 @@
                         </div>
                         
                     </div>
+                    <section class="live-demo" data-demo="dashboard">
+                        <div class="demo-header">
+                            <div>
+                                <p class="eyebrow">Live workflow</p>
+                                <h3>Revenue Leakage Detection Dashboard</h3>
+                            </div>
+                            <output class="demo-status" data-demo-status>Ready</output>
+                        </div>
+
+                        
+                        <div class="demo-control-grid">
+                            <label>Activated services <input type="range" min="80" max="240" value="164" data-field="active"></label>
+                            <label>Invoice matches <input type="range" min="60" max="240" value="149" data-field="matched"></label>
+                            <label>Avg monthly charge <input type="range" min="25" max="95" value="58" data-field="charge"></label>
+                        </div>
+                        <div class="demo-result-grid">
+                            <div><strong data-output="exceptions">15</strong><span>missing billables</span></div>
+                            <div><strong data-output="exposure">$870</strong><span>monthly recovery target</span></div>
+                            <div><strong data-output="priority">Store follow-up</strong><span>next action</span></div>
+                        </div>
+                        
+                    </section>
                     <div class="project-detail-grid">
                         <div>
                             <h3>Business Problem</h3>
-                            <p>Billing, activation, and adjustment data can drift across systems, making missed revenue hard to see before month-end close.</p>
+                            <p>Activated services do not always become invoice lines, so finance needs a fast way to see which accounts may be underbilled before month-end close.</p>
                         </div>
                         <div>
                             <h3>What I Built</h3>
-                            <p>A dashboard concept that reconciles active services against invoice lines, highlights missing billables, and ranks exceptions by estimated exposure.</p>
+                            <p>A reconciliation queue that compares activations against invoice matches, estimates recoverable monthly revenue, and points operations toward the likely process gap.</p>
                         </div>
                         <div>
                             <h3>Business Impact</h3>
-                            <p>Gives finance a prioritized recovery queue and gives operations a root-cause view by store, product, and billing period.</p>
+                            <p>Helps finance recover missed charges while giving store operations a specific list of accounts, products, and process steps to fix.</p>
                         </div>
                     </div>
                     <div class="tag-row">
@@ -82,11 +104,11 @@
                     </div>
                     <div class="mini-metric-row">
                         
-                        <span>Ranked revenue exceptions</span>
-                        
-                        <span>Store/product variance view</span>
+                        <span>Missing billables</span>
                         
                         <span>Recoverable revenue estimate</span>
+                        
+                        <span>Root-cause queue</span>
                         
                     </div>
                 </article>
@@ -109,18 +131,42 @@
                         </div>
                         
                     </div>
+                    <section class="live-demo" data-demo="sql">
+                        <div class="demo-header">
+                            <div>
+                                <p class="eyebrow">Live workflow</p>
+                                <h3>SQL Billing Reconciliation Audit</h3>
+                            </div>
+                            <output class="demo-status" data-demo-status>Ready</output>
+                        </div>
+
+                        
+                        <div class="demo-control-grid compact">
+                            <label>Audit check
+                                <select data-field="check">
+                                    <option value="credit">Large credit</option>
+                                    <option value="tax">Missing tax</option>
+                                    <option value="duplicate">Duplicate adjustment</option>
+                                    <option value="approval">Missing approval</option>
+                                </select>
+                            </label>
+                            <label>Minimum exposure <input type="range" min="100" max="1200" value="450" step="50" data-field="minimum"></label>
+                        </div>
+                        <div class="demo-table" data-output="table"></div>
+                        
+                    </section>
                     <div class="project-detail-grid">
                         <div>
                             <h3>Business Problem</h3>
-                            <p>Finance needs a repeatable way to identify unusual credits, missing charges, and high-risk billing adjustments.</p>
+                            <p>Manual billing reviews can miss unusual credits, tax gaps, duplicate adjustments, or charges that need approval evidence.</p>
                         </div>
                         <div>
                             <h3>What I Built</h3>
-                            <p>A parameterized SQL audit workflow joining customers, invoices, payments, products, stores, and adjustments into one reviewable result set.</p>
+                            <p>A reusable SQL audit workflow that filters exception type, exposure threshold, and billing period into a reviewable worklist.</p>
                         </div>
                         <div>
                             <h3>Business Impact</h3>
-                            <p>Makes monthly review more consistent and reduces manual query recreation during billing close.</p>
+                            <p>Gives finance and audit stakeholders a repeatable exception list with owner-ready next actions instead of one-off spreadsheet checks.</p>
                         </div>
                     </div>
                     <div class="tag-row">
@@ -138,9 +184,9 @@
                         
                         <span>Stored audit logic</span>
                         
-                        <span>High-risk adjustment flags</span>
+                        <span>Exception worklist</span>
                         
-                        <span>Reusable month-end procedure</span>
+                        <span>Approval evidence review</span>
                         
                     </div>
                 </article>
@@ -169,18 +215,37 @@
                         </div>
                         
                     </div>
+                    <section class="live-demo" data-demo="migration">
+                        <div class="demo-header">
+                            <div>
+                                <p class="eyebrow">Live workflow</p>
+                                <h3>Legacy Data Migration &amp; Schema Modernization</h3>
+                            </div>
+                            <output class="demo-status" data-demo-status>Ready</output>
+                        </div>
+
+                        
+                        <div class="demo-stepper">
+                            <button type="button" data-action="profile">Profile</button>
+                            <button type="button" data-action="map">Map</button>
+                            <button type="button" data-action="validate">Validate</button>
+                        </div>
+                        <div class="demo-progress"><span data-output="progress"></span></div>
+                        <div class="demo-log" data-output="log">Choose a migration step.</div>
+                        
+                    </section>
                     <div class="project-detail-grid">
                         <div>
                             <h3>Business Problem</h3>
-                            <p>Legacy customer records often contain duplicate people, inconsistent product names, and free-text fields that slow reporting.</p>
+                            <p>Legacy customer and billing records contain duplicates, inconsistent product values, and free-text notes that make migration risky.</p>
                         </div>
                         <div>
                             <h3>What I Built</h3>
-                            <p>A migration plan with source profiling, field mapping, normalized target tables, validation queries, and parallel report checks.</p>
+                            <p>A cutover workflow that profiles source quality, maps legacy fields to normalized tables, and validates totals before reports move to the new schema.</p>
                         </div>
                         <div>
                             <h3>Business Impact</h3>
-                            <p>Protects reporting continuity while moving messy data into a cleaner schema that is easier to maintain.</p>
+                            <p>Protects reporting continuity by proving that customer counts, subscription totals, and revenue totals reconcile before go-live.</p>
                         </div>
                     </div>
                     <div class="tag-row">
@@ -196,11 +261,11 @@
                     </div>
                     <div class="mini-metric-row">
                         
-                        <span>Target ERD</span>
+                        <span>Source quality profile</span>
                         
                         <span>Field mapping</span>
                         
-                        <span>Migration validation report</span>
+                        <span>Cutover validation report</span>
                         
                     </div>
                 </article>
@@ -209,10 +274,10 @@
                     <div class="card-header">
                         <div>
                             <p class="eyebrow">Full-Stack Development</p>
-                            <h2>CRUD Operations Business App</h2>
+                            <h2>Operations Case Queue App</h2>
                         </div>
                     </div>
-                    <div class="project-visual project-visual-crud" aria-label="CRUD Operations Business App visual mockup">
+                    <div class="project-visual project-visual-crud" aria-label="Operations Case Queue App visual mockup">
                         
                         <div class="app-mockup">
                             <div class="mock-sidebar"><span></span><span></span><span></span></div>
@@ -225,18 +290,45 @@
                         </div>
                         
                     </div>
+                    <section class="live-demo" data-demo="crud">
+                        <div class="demo-header">
+                            <div>
+                                <p class="eyebrow">Live workflow</p>
+                                <h3>Operations Case Queue App</h3>
+                            </div>
+                            <output class="demo-status" data-demo-status>Ready</output>
+                        </div>
+
+                        
+                        <form class="demo-form" data-action="add-record">
+                            <input type="text" name="owner" placeholder="Owner" value="A. Rivera" aria-label="Owner">
+                            <select name="issue" aria-label="Issue type">
+                                <option>Billing gap</option>
+                                <option>Client follow-up</option>
+                                <option>Data correction</option>
+                            </select>
+                            <select name="priority" aria-label="Priority">
+                                <option>High</option>
+                                <option>Medium</option>
+                                <option>Low</option>
+                            </select>
+                            <button type="submit">Add</button>
+                        </form>
+                        <div class="demo-table" data-output="records"></div>
+                        
+                    </section>
                     <div class="project-detail-grid">
                         <div>
                             <h3>Business Problem</h3>
-                            <p>Teams using spreadsheets for operational records lose track of ownership, status, follow-up dates, and data quality.</p>
+                            <p>Revenue, support, or operations teams using spreadsheets lose track of case owners, issue types, priorities, follow-up dates, and closure status.</p>
                         </div>
                         <div>
                             <h3>What I Built</h3>
-                            <p>A Node.js, Express, Vue, and MongoDB application pattern for creating, searching, updating, and validating business records.</p>
+                            <p>A Node.js, Express, Vue, and MongoDB case queue pattern for creating cases, assigning owners, updating workflow status, and keeping records searchable.</p>
                         </div>
                         <div>
                             <h3>Business Impact</h3>
-                            <p>Turns manual record maintenance into a structured workflow with validation, filtering, and clearer accountability.</p>
+                            <p>Turns scattered spreadsheet follow-ups into an accountable workflow where managers can see open risk, ownership, and resolution progress.</p>
                         </div>
                     </div>
                     <div class="tag-row">
@@ -254,11 +346,11 @@
                     </div>
                     <div class="mini-metric-row">
                         
-                        <span>Validated forms</span>
+                        <span>Validated case intake</span>
                         
-                        <span>Searchable records</span>
+                        <span>Owner queue</span>
                         
-                        <span>Role-aware update flow</span>
+                        <span>Status update flow</span>
                         
                     </div>
                 </article>
@@ -281,18 +373,40 @@
                         </div>
                         
                     </div>
+                    <section class="live-demo" data-demo="cloud">
+                        <div class="demo-header">
+                            <div>
+                                <p class="eyebrow">Live workflow</p>
+                                <h3>AWS RDS High-Availability Database Setup</h3>
+                            </div>
+                            <output class="demo-status" data-demo-status>Ready</output>
+                        </div>
+
+                        
+                        <div class="demo-stepper">
+                            <button type="button" data-action="traffic">Peak Load</button>
+                            <button type="button" data-action="failover">AZ Failover</button>
+                            <button type="button" data-action="restore">Restore Test</button>
+                        </div>
+                        <div class="demo-result-grid">
+                            <div><strong data-output="uptime">142 ms</strong><span>query response</span></div>
+                            <div><strong data-output="region">AZ-A</strong><span>serving node</span></div>
+                            <div><strong data-output="backup">15 min</strong><span>recovery point</span></div>
+                        </div>
+                        
+                    </section>
                     <div class="project-detail-grid">
                         <div>
                             <h3>Business Problem</h3>
-                            <p>A single unmanaged database server creates outage and recovery risk for business-critical data.</p>
+                            <p>A single unmanaged database server creates outage, backup, access, and recovery risk for orders, inventory, and reporting data.</p>
                         </div>
                         <div>
                             <h3>What I Built</h3>
-                            <p>A production-minded AWS RDS MySQL architecture with Multi-AZ deployment, automated backups, access review, monitoring, and restore documentation.</p>
+                            <p>A production-minded AWS RDS MySQL readiness workflow covering Multi-AZ failover, backup health, restore testing, and load response.</p>
                         </div>
                         <div>
                             <h3>Business Impact</h3>
-                            <p>Improves availability, recovery confidence, and operational governance around core business data.</p>
+                            <p>Gives the business confidence that core data can stay available during failures and be restored from a documented recovery path.</p>
                         </div>
                     </div>
                     <div class="tag-row">
@@ -310,7 +424,7 @@
                     </div>
                     <div class="mini-metric-row">
                         
-                        <span>99.5% uptime target</span>
+                        <span>Failover readiness</span>
                         
                         <span>Automated backups</span>
                         
@@ -322,5 +436,6 @@
             </section>
         </div>
     </div>
+    <script src="static/demo.js?v=2"></script>
 </body>
 </html>

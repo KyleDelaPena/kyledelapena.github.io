@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Case Studies | Kyle Dela Pena</title>
-    <link rel="stylesheet" href="static/style.css?v=4">
+    <link rel="stylesheet" href="static/style.css?v=8">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -28,91 +28,129 @@
 
             
             <article class="card case-study-card">
-                <h2>Reducing Revenue Leakage With SQL Reconciliation</h2>
-                <div class="case-visual case-visual-reconciliation" aria-label="Reducing Revenue Leakage With SQL Reconciliation visual mockup">
+                <h2>Strengthening Billing Adjustment Controls</h2>
+                <div class="case-visual case-visual-controls" aria-label="Strengthening Billing Adjustment Controls visual mockup">
                     
                     <div class="case-pipeline">
-                        <div><strong>Source</strong><span>Activations</span></div>
+                        <div><strong>Adjust</strong><span>Credit entered</span></div>
                         <div class="flow-arrow">&rarr;</div>
-                        <div><strong>Compare</strong><span>Invoices</span></div>
+                        <div><strong>Review</strong><span>Control rule</span></div>
                         <div class="flow-arrow">&rarr;</div>
-                        <div><strong>Recover</strong><span>Exceptions</span></div>
+                        <div><strong>Evidence</strong><span>Approval trail</span></div>
                     </div>
                     <div class="case-impact-strip">
-                        <span>Missing billables</span>
-                        <span>Exposure ranking</span>
-                        <span>Root-cause pattern</span>
+                        <span>High-dollar credits</span>
+                        <span>Missing approval notes</span>
+                        <span>Owner follow-up</span>
                     </div>
                     
                 </div>
+                <section class="live-demo" data-case-demo="controls">
+                    <div class="demo-header">
+                        <div>
+                            <p class="eyebrow">Live demo</p>
+                            <h3>Strengthening Billing Adjustment Controls</h3>
+                        </div>
+                        <output class="demo-status" data-demo-status>Ready</output>
+                    </div>
+
+                    
+                    <div class="demo-stepper control-actions">
+                        <button type="button" data-control-view="all">All Adjustments</button>
+                        <button type="button" data-control-view="missing">Missing Evidence</button>
+                        <button type="button" data-control-view="high">High-Dollar</button>
+                        <button type="button" data-control-view="stale">Stale Review</button>
+                    </div>
+                    <div class="control-review-grid" data-output="controlTable"></div>
+                    
+                </section>
                 <div class="case-study-grid">
                     <div>
                         <h3>Problem</h3>
-                        <p>Revenue activity can be created in one system but fail to appear correctly in billing outputs, causing underbilling and margin risk.</p>
+                        <p>Manual credits and billing adjustments can reduce revenue without a consistent approval trail, creating financial risk and audit cleanup work.</p>
                     </div>
                     <div>
                         <h3>Approach</h3>
-                        <p>Compare source activations, account status, product catalog, invoice lines, cancellations, and adjustments. Build exception logic that identifies active services with no billable invoice line, then rank the exceptions by expected financial impact.</p>
+                        <p>Define control rules for high-dollar adjustments, missing approval notes, repeated corrections by the same user, and stale review items. Turn those rules into an exception review cadence with owners and evidence requirements.</p>
                     </div>
                     <div>
                         <h3>Outcome</h3>
-                        <p>Finance receives a recoverable revenue list while operations receives a prevention pattern by store, product, and process step.</p>
+                        <p>Finance gains a clearer approval trail, managers know which adjustments need review, and audit support becomes easier because exceptions are tracked with ownership.</p>
                     </div>
                 </div>
                 <div class="tag-row">
                     
-                    <span>SQL joins</span>
+                    <span>Control matrix</span>
                     
-                    <span>Excel review</span>
+                    <span>Exception review</span>
                     
-                    <span>Exception reporting</span>
+                    <span>Approval evidence</span>
                     
-                    <span>Root-cause analysis</span>
+                    <span>Audit readiness</span>
                     
                 </div>
             </article>
             
             <article class="card case-study-card">
-                <h2>Modernizing Legacy Data for Better Reporting</h2>
-                <div class="case-visual case-visual-migration" aria-label="Modernizing Legacy Data for Better Reporting visual mockup">
+                <h2>Turning Data Quality Findings Into Action</h2>
+                <div class="case-visual case-visual-stakeholder" aria-label="Turning Data Quality Findings Into Action visual mockup">
                     
-                    <div class="case-validation">
-                        <div class="validation-table">
-                            <span>Legacy fields</span>
-                            <span>Clean schema</span>
-                            <span>Validation totals</span>
-                        </div>
-                        <div class="validation-bars">
-                            <span style="width: 72%"></span>
-                            <span style="width: 88%"></span>
-                            <span style="width: 96%"></span>
-                        </div>
+                    <div class="case-pipeline">
+                        <div><strong>Finance</strong><span>Exposure</span></div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div><strong>Operations</strong><span>Process pattern</span></div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div><strong>IT</strong><span>System evidence</span></div>
+                    </div>
+                    <div class="case-impact-strip">
+                        <span>Shared facts</span>
+                        <span>Assigned owners</span>
+                        <span>Follow-up date</span>
                     </div>
                     
                 </div>
+                <section class="live-demo" data-case-demo="stakeholder">
+                    <div class="demo-header">
+                        <div>
+                            <p class="eyebrow">Live demo</p>
+                            <h3>Turning Data Quality Findings Into Action</h3>
+                        </div>
+                        <output class="demo-status" data-demo-status>Ready</output>
+                    </div>
+
+                    
+                    <div class="demo-stepper stakeholder-actions">
+                        <button type="button" data-view="all">All Findings</button>
+                        <button type="button" data-view="finance">Finance View</button>
+                        <button type="button" data-view="operations">Ops View</button>
+                        <button type="button" data-view="it">IT View</button>
+                    </div>
+                    <div class="stakeholder-board" data-output="stakeholderTable"></div>
+                    
+                </section>
                 <div class="case-study-grid">
                     <div>
                         <h3>Problem</h3>
-                        <p>Inconsistent legacy fields make it difficult to trust reports or safely migrate data into a new system.</p>
+                        <p>Finance, operations, and IT can look at the same data issue differently, which slows resolution when ownership and business impact are unclear.</p>
                     </div>
                     <div>
                         <h3>Approach</h3>
-                        <p>Profile the legacy dataset, define clean target tables, map old values into canonical categories, remove duplicate records, and validate totals before and after migration.</p>
+                        <p>Translate technical findings into department-specific actions: finance receives exposure and control impact, operations receives process patterns, and IT receives system mapping or integration evidence.</p>
                     </div>
                     <div>
                         <h3>Outcome</h3>
-                        <p>The organization gains cleaner reporting, easier future development, and a documented schema that new team members can understand.</p>
+                        <p>Teams leave with the same evidence, clear ownership, and a follow-up plan instead of debating separate spreadsheets or symptoms.</p>
                     </div>
                 </div>
                 <div class="tag-row">
                     
-                    <span>MySQL</span>
+                    <span>Stakeholder brief</span>
                     
-                    <span>ERD design</span>
+                    <span>Owner matrix</span>
                     
-                    <span>Data profiling</span>
+                    <span>Issue tracker</span>
                     
-                    <span>Validation queries</span>
+                    <span>Business impact summary</span>
                     
                 </div>
             </article>
@@ -128,6 +166,27 @@
                     </div>
                     
                 </div>
+                <section class="live-demo" data-case-demo="automation">
+                    <div class="demo-header">
+                        <div>
+                            <p class="eyebrow">Live demo</p>
+                            <h3>Automating Recurring Operational Reports</h3>
+                        </div>
+                        <output class="demo-status" data-demo-status>Ready</output>
+                    </div>
+
+                    
+                    <div class="demo-stepper">
+                        <button type="button" data-action="extract">Extract</button>
+                        <button type="button" data-action="validate">Validate</button>
+                        <button type="button" data-action="send">Send Report</button>
+                    </div>
+                    <div class="automation-console">
+                        <div class="automation-timeline" data-output="runs"></div>
+                        <div class="demo-log" data-output="runLog">Scheduled job is waiting for the next run.</div>
+                    </div>
+                    
+                </section>
                 <div class="case-study-grid">
                     <div>
                         <h3>Problem</h3>
@@ -157,5 +216,6 @@
             
         </div>
     </div>
+    <script src="static/demo.js?v=5"></script>
 </body>
 </html>

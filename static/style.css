@@ -687,6 +687,394 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.live-demo {
+    background: #0d1117;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 8px;
+    margin: 0 0 24px;
+    padding: 20px;
+}
+
+.demo-header {
+    align-items: start;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.demo-header h3 {
+    color: var(--text-main);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.demo-status {
+    background: rgba(0, 255, 136, 0.08);
+    border: 1px solid rgba(0, 255, 136, 0.22);
+    border-radius: 999px;
+    color: var(--accent-color);
+    flex: 0 0 auto;
+    font-size: 0.82rem;
+    font-weight: 600;
+    max-width: 220px;
+    overflow-wrap: anywhere;
+    padding: 8px 12px;
+    text-align: right;
+}
+
+.demo-control-grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.demo-control-grid.compact {
+    grid-template-columns: minmax(180px, 0.75fr) minmax(0, 1.25fr);
+}
+
+.demo-control-grid label {
+    background: rgba(22, 27, 34, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr auto;
+    min-width: 0;
+    padding: 12px;
+    user-select: none;
+}
+
+.demo-control-grid label input[type="range"] {
+    grid-column: 1 / -1;
+}
+
+.range-value {
+    color: var(--accent-color);
+    font-size: 0.82rem;
+    font-weight: 600;
+    justify-self: end;
+}
+
+.demo-control-grid label,
+.demo-form input,
+.demo-form select,
+.demo-control-grid select {
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.demo-control-grid input[type="range"] {
+    accent-color: var(--accent-color);
+    display: block;
+    margin: 0;
+    min-width: 0;
+    width: 100%;
+}
+
+.demo-control-grid select,
+.demo-form input,
+.demo-form select {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    min-height: 40px;
+    padding: 9px 10px;
+    width: 100%;
+}
+
+.demo-result-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 16px;
+}
+
+.demo-result-grid div {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    min-width: 0;
+    padding: 14px;
+}
+
+.demo-result-grid strong {
+    color: var(--accent-color);
+    display: block;
+    font-size: 1.28rem;
+    margin-bottom: 4px;
+    overflow-wrap: anywhere;
+}
+
+.demo-result-grid span {
+    color: var(--text-dim);
+    font-size: 0.82rem;
+}
+
+.demo-table {
+    margin-top: 16px;
+    overflow-x: auto;
+}
+
+.demo-table table {
+    border-collapse: collapse;
+    min-width: 640px;
+    width: 100%;
+}
+
+.demo-table th,
+.demo-table td {
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    line-height: 1.45;
+    padding: 11px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.demo-table th {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.demo-table td strong {
+    color: var(--text-main);
+}
+
+.demo-table button,
+.demo-form button,
+.demo-stepper button {
+    background: var(--btn-bg);
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    min-height: 38px;
+    padding: 9px 13px;
+}
+
+.demo-table td button {
+    margin: 0 6px 6px 0;
+}
+
+.demo-table button:hover,
+.demo-form button:hover,
+.demo-stepper button:hover {
+    background: var(--btn-hover);
+}
+
+.demo-stepper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.stakeholder-actions {
+    margin-bottom: 4px;
+}
+
+.control-actions {
+    margin-bottom: 4px;
+}
+
+.control-review-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 16px;
+}
+
+.control-review-card,
+.stakeholder-ticket,
+.automation-step {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    min-width: 0;
+    padding: 14px;
+}
+
+.control-card-top {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.control-card-top strong,
+.stakeholder-ticket strong,
+.automation-step strong {
+    color: var(--text-main);
+}
+
+.control-card-top span {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.control-review-card p,
+.stakeholder-ticket p {
+    color: var(--text-dim);
+    line-height: 1.45;
+    margin: 10px 0 12px;
+}
+
+.control-review-card dl {
+    display: grid;
+    gap: 8px;
+    margin: 0 0 14px;
+}
+
+.control-review-card dl div {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 86px 1fr;
+}
+
+.control-review-card dt {
+    color: var(--text-dim);
+    font-size: 0.78rem;
+}
+
+.control-review-card dd {
+    color: var(--text-main);
+    font-size: 0.86rem;
+    margin: 0;
+}
+
+.control-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.control-card-actions button,
+.stakeholder-ticket button {
+    background: var(--btn-bg);
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    min-height: 36px;
+    padding: 8px 11px;
+}
+
+.stakeholder-board {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 16px;
+}
+
+.stakeholder-lane {
+    background: rgba(22, 27, 34, 0.45);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: grid;
+    gap: 10px;
+    padding: 12px;
+}
+
+.stakeholder-lane h4 {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.stakeholder-ticket {
+    display: grid;
+    gap: 8px;
+}
+
+.stakeholder-ticket span,
+.stakeholder-ticket small {
+    color: var(--text-dim);
+    line-height: 1.4;
+}
+
+.automation-console {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+    margin-top: 16px;
+}
+
+.automation-timeline {
+    display: grid;
+    gap: 10px;
+}
+
+.automation-step {
+    display: grid;
+    gap: 6px;
+    position: relative;
+}
+
+.automation-step::before {
+    background: var(--border-color);
+    border-radius: 999px;
+    content: "";
+    height: 10px;
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    width: 10px;
+}
+
+.automation-step.done {
+    border-color: rgba(0, 255, 136, 0.35);
+}
+
+.automation-step.done::before {
+    background: var(--accent-color);
+}
+
+.automation-step span,
+.automation-step em {
+    color: var(--text-dim);
+    font-style: normal;
+}
+
+.demo-progress {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    height: 16px;
+    margin: 16px 0 12px;
+    overflow: hidden;
+}
+
+.demo-progress span,
+.demo-progress span span {
+    display: block;
+    height: 100%;
+}
+
+.demo-progress span span {
+    background: linear-gradient(90deg, var(--accent-color), #238636);
+    border-radius: 999px;
+}
+
+.demo-log {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    padding: 14px;
+}
+
+.demo-form {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: minmax(180px, 1fr) minmax(160px, 0.75fr) minmax(130px, 0.6fr) auto;
+}
+
 .project-detail-grid h3,
 .case-study-grid h3 {
     color: var(--text-main);
@@ -1010,7 +1398,14 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     .case-pipeline,
     .case-impact-strip,
     .case-validation,
-    .schedule-row {
+    .schedule-row,
+    .demo-control-grid,
+    .demo-control-grid.compact,
+    .demo-result-grid,
+    .demo-form,
+    .control-review-grid,
+    .stakeholder-board,
+    .automation-console {
         grid-template-columns: 1fr;
     }
 
@@ -1020,5 +1415,14 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
 
     .schedule-row {
         align-items: start;
+    }
+
+    .demo-header {
+        flex-direction: column;
+    }
+
+    .demo-status {
+        max-width: 100%;
+        text-align: left;
     }
 }
