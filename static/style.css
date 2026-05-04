@@ -11,6 +11,13 @@
 
 * { box-sizing: border-box; }
 
+img,
+svg,
+canvas,
+video {
+    max-width: 100%;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -19,6 +26,10 @@ body, html {
     font-family: 'Inter', sans-serif;
     min-height: 100vh;
     -webkit-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 .nav-bar {
@@ -53,6 +64,7 @@ body, html {
 .content-wrapper {
     width: 100%;
     max-width: 1000px;
+    min-width: 0;
 }
 
 .card {
@@ -60,6 +72,7 @@ body, html {
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 30px;
+    min-width: 0;
 }
 
 .core-expertise {
@@ -463,6 +476,7 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
 .toolkit-card h2 {
     font-size: 1.35rem;
     margin: 0 0 18px;
+    overflow-wrap: anywhere;
     padding: 0;
 }
 
@@ -692,6 +706,7 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     border: 1px solid rgba(0, 255, 136, 0.2);
     border-radius: 8px;
     margin: 0 0 24px;
+    min-width: 0;
     padding: 20px;
 }
 
@@ -816,6 +831,8 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
 .demo-table {
     margin-top: 16px;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
 }
 
 .demo-table table {
@@ -1222,8 +1239,16 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
 }
 
 @media (max-width: 760px) {
+    body,
+    html {
+        width: 100%;
+    }
+
     .nav-bar {
         padding: 12px 0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
     }
 
     .nav-container {
@@ -1250,12 +1275,13 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     }
 
     .page-container {
-        padding: 24px 14px;
+        padding: 22px 12px;
     }
 
     .card {
         border-radius: 8px;
-        padding: 20px;
+        padding: 16px;
+        width: 100%;
     }
 
     .profile-header-clean,
@@ -1291,10 +1317,11 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
 
     .headline-clean {
         font-size: 1rem;
+        line-height: 1.45;
     }
 
     h2 {
-        font-size: 1.8rem;
+        font-size: 1.45rem;
         line-height: 1.2;
         padding-left: 0;
     }
@@ -1311,7 +1338,12 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     }
 
     .skill-hero h1 {
-        font-size: 1.9rem;
+        font-size: 1.75rem;
+        overflow-wrap: anywhere;
+    }
+
+    .skill-summary {
+        font-size: 0.98rem;
     }
 
     .metric-card,
@@ -1365,12 +1397,50 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     .project-card h2,
     .case-study-card h2,
     .toolkit-card h2 {
-        font-size: 1.18rem;
+        font-size: 1.12rem;
+        line-height: 1.28;
     }
 
     .project-visual {
         min-height: auto;
-        padding: 16px;
+        margin-bottom: 18px;
+        padding: 12px;
+    }
+
+    .visual-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .dashboard-kpis {
+        gap: 10px;
+    }
+
+    .dashboard-kpis div {
+        padding: 12px;
+    }
+
+    .dashboard-kpis strong {
+        font-size: 1.18rem;
+    }
+
+    .bar-chart {
+        gap: 7px;
+        height: 62px;
+        padding: 10px;
+    }
+
+    .code-window {
+        font-size: 0.82rem;
+        min-height: auto;
+        overflow-x: auto;
+        padding: 14px;
+    }
+
+    .code-window p {
+        font-size: 0.82rem;
+        white-space: nowrap;
     }
 
     .dashboard-kpis,
@@ -1395,6 +1465,11 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
         display: none;
     }
 
+    .live-demo {
+        margin-bottom: 18px;
+        padding: 14px;
+    }
+
     .case-pipeline,
     .case-impact-strip,
     .case-validation,
@@ -1410,7 +1485,8 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
     }
 
     .case-visual {
-        padding: 16px;
+        margin-bottom: 18px;
+        padding: 12px;
     }
 
     .schedule-row {
@@ -1419,10 +1495,124 @@ h2 { font-size: 1.5rem; margin-bottom: 15px; padding-left: 5px; }
 
     .demo-header {
         flex-direction: column;
+        gap: 10px;
+        margin-bottom: 14px;
     }
 
     .demo-status {
+        align-self: flex-start;
         max-width: 100%;
         text-align: left;
+    }
+
+    .demo-stepper {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .demo-stepper button,
+    .demo-form button,
+    .demo-table button,
+    .control-card-actions button,
+    .stakeholder-ticket button {
+        min-height: 42px;
+        padding: 9px 10px;
+        width: 100%;
+    }
+
+    .demo-control-grid {
+        gap: 10px;
+    }
+
+    .demo-result-grid {
+        gap: 10px;
+    }
+
+    .demo-result-grid strong {
+        font-size: 1.1rem;
+    }
+
+    .demo-table {
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin-top: 12px;
+    }
+
+    .demo-table table {
+        min-width: 560px;
+    }
+
+    .demo-table th,
+    .demo-table td {
+        font-size: 0.8rem;
+        padding: 10px 8px;
+    }
+
+    .tag-row,
+    .mini-metric-row {
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .tag-row span,
+    .mini-metric-row span,
+    .case-impact-strip span {
+        border-radius: 8px;
+        font-size: 0.78rem;
+        line-height: 1.3;
+        padding: 8px 10px;
+    }
+
+    .control-review-card dl div {
+        grid-template-columns: 1fr;
+    }
+
+    .stakeholder-ticket {
+        gap: 7px;
+    }
+
+    .automation-console {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 420px) {
+    .page-container {
+        padding: 18px 8px;
+    }
+
+    .card {
+        padding: 14px;
+    }
+
+    .profile-header-clean {
+        padding: 20px 14px;
+    }
+
+    .name-clean {
+        font-size: 1.55rem;
+    }
+
+    .skill-hero h1 {
+        font-size: 1.55rem;
+    }
+
+    .project-card h2,
+    .case-study-card h2,
+    .toolkit-card h2 {
+        font-size: 1.05rem;
+    }
+
+    .demo-stepper {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-table table {
+        min-width: 500px;
+    }
+
+    .project-detail-grid,
+    .case-study-grid {
+        gap: 14px;
     }
 }
