@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | Kyle Dela Pena</title>
+    <link rel="stylesheet" href="static/style.css?v=10">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html">Home</a>
+            <a href="experience">Experience</a>
+            <a href="education">Education</a>
+            <a href="projects">Projects</a>
+            <a href="case-studies">Case Studies</a>
+            <a href="toolkit">Toolkit</a>
+        </div>
+    </nav>
+    <div class="page-container">
+        <div class="content-wrapper">
+            <section class="skill-hero">
+                <p class="eyebrow">Business examples</p>
+                <h1>Case Studies</h1>
+                <p class="skill-summary">Each case study connects a technical approach to a business outcome, so employers can see how I think beyond the tool and into the operational result.</p>
+            </section>
+
+            
+            <article class="card case-study-card">
+                <h2>Strengthening Billing Adjustment Controls</h2>
+                <div class="case-visual case-visual-controls" aria-label="Strengthening Billing Adjustment Controls visual mockup">
+                    
+                    <div class="case-pipeline">
+                        <div><strong>Adjust</strong><span>Credit entered</span></div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div><strong>Review</strong><span>Control rule</span></div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div><strong>Evidence</strong><span>Approval trail</span></div>
+                    </div>
+                    <div class="case-impact-strip">
+                        <span>High-dollar credits</span>
+                        <span>Missing approval notes</span>
+                        <span>Owner follow-up</span>
+                    </div>
+                    
+                </div>
+                <section class="live-demo" data-case-demo="controls">
+                    <div class="demo-header">
+                        <div>
+                            <p class="eyebrow">Live demo</p>
+                            <h3>Strengthening Billing Adjustment Controls</h3>
+                        </div>
+                        <output class="demo-status" data-demo-status>Ready</output>
+                    </div>
+
+                    
+                    <div class="demo-stepper control-actions">
+                        <button type="button" data-control-view="all">All Adjustments</button>
+                        <button type="button" data-control-view="missing">Missing Evidence</button>
+                        <button type="button" data-control-view="high">High-Dollar</button>
+                        <button type="button" data-control-view="stale">Stale Review</button>
+                    </div>
+                    <div class="control-review-grid" data-output="controlTable"></div>
+                    
+                </section>
+                <div class="case-study-grid">
+                    <div>
+                        <h3>Problem</h3>
+                        <p>Manual credits and billing adjustments can reduce revenue without a consistent approval trail, creating financial risk and audit cleanup work.</p>
+                    </div>
+                    <div>
+                        <h3>Approach</h3>
+                        <p>Define control rules for high-dollar adjustments, missing approval notes, repeated corrections by the same user, and stale review items. Turn those rules into an exception review cadence with owners and evidence requirements.</p>
+                    </div>
+                    <div>
+                        <h3>Outcome</h3>
+                        <p>Finance gains a clearer approval trail, managers know which adjustments need review, and audit support becomes easier because exceptions are tracked with ownership.</p>
+                    </div>
+                </div>
+                <div class="tag-row">
+                    
+                    <span>Control matrix</span>
+                    
+                    <span>Exception review</span>
+                    
+                    <span>Approval evidence</span>
+                    
+                    <span>Audit readiness</span>
+                    
+                </div>
+            </article>
+            
+            <article class="card case-study-card">
+                <h2>Turning Data Quality Findings Into Action</h2>
+                <div class="case-visual case-visual-stakeholder" aria-label="Turning Data Quality Findings Into Action visual mockup">
+                    
+                    <div class="case-pipeline">
+                        <div><strong>Finance</strong><span>Exposure</span></div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div><strong>Operations</strong><span>Process pattern</span></div>
+                        <div class="flow-arrow">&rarr;</div>
+                        <div><strong>IT</strong><span>System evidence</span></div>
+                    </div>
+                    <div class="case-impact-strip">
+                        <span>Shared facts</span>
+                        <span>Assigned owners</span>
+                        <span>Follow-up date</span>
+                    </div>
+                    
+                </div>
+                <section class="live-demo" data-case-demo="stakeholder">
+                    <div class="demo-header">
+                        <div>
+                            <p class="eyebrow">Live demo</p>
+                            <h3>Turning Data Quality Findings Into Action</h3>
+                        </div>
+                        <output class="demo-status" data-demo-status>Ready</output>
+                    </div>
+
+                    
+                    <div class="demo-stepper stakeholder-actions">
+                        <button type="button" data-view="all">All Findings</button>
+                        <button type="button" data-view="finance">Finance View</button>
+                        <button type="button" data-view="operations">Ops View</button>
+                        <button type="button" data-view="it">IT View</button>
+                    </div>
+                    <div class="stakeholder-board" data-output="stakeholderTable"></div>
+                    
+                </section>
+                <div class="case-study-grid">
+                    <div>
+                        <h3>Problem</h3>
+                        <p>Finance, operations, and IT can look at the same data issue differently, which slows resolution when ownership and business impact are unclear.</p>
+                    </div>
+                    <div>
+                        <h3>Approach</h3>
+                        <p>Translate technical findings into department-specific actions: finance receives exposure and control impact, operations receives process patterns, and IT receives system mapping or integration evidence.</p>
+                    </div>
+                    <div>
+                        <h3>Outcome</h3>
+                        <p>Teams leave with the same evidence, clear ownership, and a follow-up plan instead of debating separate spreadsheets or symptoms.</p>
+                    </div>
+                </div>
+                <div class="tag-row">
+                    
+                    <span>Stakeholder brief</span>
+                    
+                    <span>Owner matrix</span>
+                    
+                    <span>Issue tracker</span>
+                    
+                    <span>Business impact summary</span>
+                    
+                </div>
+            </article>
+            
+            <article class="card case-study-card">
+                <h2>Automating Recurring Operational Reports</h2>
+                <div class="case-visual case-visual-automation" aria-label="Automating Recurring Operational Reports visual mockup">
+                    
+                    <div class="case-schedule">
+                        <div class="schedule-row"><span>Mon</span><strong>Extract</strong><em>Complete</em></div>
+                        <div class="schedule-row"><span>Wed</span><strong>Validate</strong><em>Clean</em></div>
+                        <div class="schedule-row"><span>Fri</span><strong>Send Report</strong><em>Logged</em></div>
+                    </div>
+                    
+                </div>
+                <section class="live-demo" data-case-demo="automation">
+                    <div class="demo-header">
+                        <div>
+                            <p class="eyebrow">Live demo</p>
+                            <h3>Automating Recurring Operational Reports</h3>
+                        </div>
+                        <output class="demo-status" data-demo-status>Ready</output>
+                    </div>
+
+                    
+                    <div class="demo-stepper">
+                        <button type="button" data-action="extract">Extract</button>
+                        <button type="button" data-action="validate">Validate</button>
+                        <button type="button" data-action="send">Send Report</button>
+                    </div>
+                    <div class="automation-console">
+                        <div class="automation-timeline" data-output="runs"></div>
+                        <div class="demo-log" data-output="runLog">Scheduled job is waiting for the next run.</div>
+                    </div>
+                    
+                </section>
+                <div class="case-study-grid">
+                    <div>
+                        <h3>Problem</h3>
+                        <p>Manual weekly reports waste analyst time and increase the chance of inconsistent calculations.</p>
+                    </div>
+                    <div>
+                        <h3>Approach</h3>
+                        <p>Move repeatable report logic into stored procedures, schedule the reporting job, log each run, and add checks for unusual totals or row counts.</p>
+                    </div>
+                    <div>
+                        <h3>Outcome</h3>
+                        <p>The business gets faster reporting, fewer manual steps, and better visibility when something in the data changes unexpectedly.</p>
+                    </div>
+                </div>
+                <div class="tag-row">
+                    
+                    <span>Stored procedures</span>
+                    
+                    <span>Scheduled jobs</span>
+                    
+                    <span>Run logs</span>
+                    
+                    <span>PITR awareness</span>
+                    
+                </div>
+            </article>
+            
+        </div>
+    </div>
+    <script src="static/demo.js?v=5"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+Kyle Dela Pena
+Revenue Assurance Analyst | CIS Graduate | SQL, Database Systems & Financial Data Integrity
+Pearland, Texas, United States
+LinkedIn: https://www.linkedin.com/in/kyle-dela-pena-321bb41b5
+
+Professional Summary
+Revenue Assurance Analyst with a Computer Information Systems background and a focus on SQL, database management, revenue integrity, and financial risk mitigation. Experienced in translating complex operational data into actionable insights that protect profitability, improve reporting accuracy, and strengthen data integrity across billing and operational systems.
+
+Core Expertise
+Revenue Integrity | SQL & Data Analysis | Financial Risk Mitigation
+
+Technical Toolkit
+Languages & Querying: SQL, JavaScript, HTML, CSS
+Databases: MySQL, MongoDB, AWS RDS, relational schema design
+Backend: Node.js, Express, REST API design, CRUD workflows
+Frontend: Vue.js, Bootstrap, responsive HTML/CSS, UI mockups
+Data & Analysis: Excel, ERDs, DFDs, reconciliation reports, exception analysis
+Workflow: Git, technical documentation, audit logs, cross-functional handoffs
+
+Experience
+Revenue Assurance Analyst, Prime Communications
+Apr 2026 - Present
+- Perform end-to-end reconciliation of revenue streams to identify and resolve discrepancies.
+- Use SQL and Excel to audit billing systems, contracts, and operational datasets.
+- Partner with IT, Finance, and Operations to investigate root causes of revenue loss.
+- Conduct recurring billing-cycle checks to support data integrity and audit readiness.
+
+Database Administrator & Cloud Architect, Chonche Cafe
+Jan 2023 - May 2023
+- Architected and managed a MySQL production database on AWS RDS with Multi-AZ deployment.
+- Optimized SQL queries and indexing strategies to improve response time and reduce cloud cost.
+- Automated daily database backups and point-in-time recovery protocols.
+
+Junior Systems & Database Analyst, Houston Hot Breads
+Jan 2021 - Dec 2022
+- Performed SQL performance audits and refactored slow queries.
+- Designed a modernized MySQL schema for improved scalability and reporting.
+- Created DFDs and UI mockups to support stakeholder communication.
+
+Full-Stack Web Developer, Community Family Center & Bread of Life
+Jan 2022 - May 2022
+- Built data workflows using MongoDB, Express, Vue.js, Node.js, Bootstrap, and Git.
+- Migrated legacy nonprofit data into a centralized relational model.
+- Designed matching logic and CRUD operations to improve record management.
+
+Education
+University of Houston
+Bachelor of Science, Computer and Information Systems Security/Information Assurance
+Aug 2020 - May 2023
+Cum Laude | Academic Excellence Scholarship Recipient | Dean's List

@@ -449,6 +449,18 @@ def experience():
                 "Managed complex data validation projects, leveraging SQL and database management principles to audit large-scale telecommunications datasets."
             ]
         },
+                {
+            "role": "IT Technician & Custom PC Specialist",
+            "org": "Independent IT and Services Professional",
+            "period": "Jun 2023 - Mar 2026",
+            "bullets": [
+                "Diagnosed and resolved hardware/software malfunctions for 30+ individual clients, maintaining a 95% first-visit resolution rate and minimizing system downtime.",
+                "Built and configured 50+ custom high-performance PCs, managing everything from component selection to thermal stress testing to ensure 100% system stability.",
+                "Boosted system performance by an average of 40% for clients by executing strategic hardware upgrades (SSDs, RAM) and optimizing OS startup configurations.",
+                "Ensured 100% data integrity during complex OS migrations and malware removals, successfully recovering over 5TB of critical client data without loss.",
+                "Reduced client procurement costs by 15-20% by providing expert consulting on price-to-performance component selection and sourcing deals."
+            ]
+        },
         {
             "role": "Database Administrator & Cloud Architect",
             "org": "Chonche Cafe",
