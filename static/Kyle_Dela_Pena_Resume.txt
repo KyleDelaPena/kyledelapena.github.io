@@ -1,50 +1,75 @@
-Kyle Dela Pena
-Revenue Assurance Analyst | CIS Graduate | SQL, Database Systems & Financial Data Integrity
+KYLE DELA PENA
+Revenue Assurance Analyst @ Prime Communications | SQL & Data Integrity | Database Administration | Financial Risk Mitigation | Full Stack Development
 Pearland, Texas, United States
-LinkedIn: https://www.linkedin.com/in/kyle-dela-pena-321bb41b5
+https://www.linkedin.com/in/kyle-dela-pena-321bb41b5
 
-Professional Summary
-Revenue Assurance Analyst with a Computer Information Systems background and a focus on SQL, database management, revenue integrity, and financial risk mitigation. Experienced in translating complex operational data into actionable insights that protect profitability, improve reporting accuracy, and strengthen data integrity across billing and operational systems.
+PROFILE
+I am a Revenue Assurance Analyst at Prime Communications, where I bridge the gap between complex data systems and financial integrity. With a background in Computer Information Science, I specialize in using SQL and database management to identify revenue leakage, optimize financial controls, and ensure enterprise-level data accuracy. My focus is on safeguarding profitability by transforming raw data into actionable insights and maintaining the highest standards of data integrity within our billing and operational ecosystems.
 
-Core Expertise
-Revenue Integrity | SQL & Data Analysis | Financial Risk Mitigation
+EXPERIENCE
 
-Technical Toolkit
-Languages & Querying: SQL, JavaScript, HTML, CSS
-Databases: MySQL, MongoDB, AWS RDS, relational schema design
-Backend: Node.js, Express, REST API design, CRUD workflows
-Frontend: Vue.js, Bootstrap, responsive HTML/CSS, UI mockups
-Data & Analysis: Excel, ERDs, DFDs, reconciliation reports, exception analysis
-Workflow: Git, technical documentation, audit logs, cross-functional handoffs
-
-Experience
-Revenue Assurance Analyst, Prime Communications
+Revenue Assurance Analyst | Prime Communications
 Apr 2026 - Present
-- Perform end-to-end reconciliation of revenue streams to identify and resolve discrepancies.
-- Use SQL and Excel to audit billing systems, contracts, and operational datasets.
-- Partner with IT, Finance, and Operations to investigate root causes of revenue loss.
-- Conduct recurring billing-cycle checks to support data integrity and audit readiness.
+- Revenue Integrity & Analysis: Perform end-to-end reconciliation of revenue streams to identify and rectify discrepancies, ensuring that all billable services are accurately captured and processed.
+- Data-Driven Problem Solving: Utilize advanced data tools (SQL, Excel) to audit billing systems and contracts, reducing financial risk and improving margin accuracy.
+- Cross-Functional Collaboration: Partner with IT, Finance, and Operations departments to investigate root causes of revenue loss and implement long-term control enhancements.
+- Audit & Compliance: Conduct regular spot checks and sanity audits on monthly billing cycles to ensure 100% data integrity and compliance with financial regulations.
+- Process Optimization: Identify 'leakage' patterns and provide actionable insights to senior leadership to streamline the revenue cycle and optimize sustainable costs.
+- Managed complex data validation projects, leveraging SQL and database management principles to audit large-scale telecommunications datasets.
 
-Database Administrator & Cloud Architect, Chonche Cafe
+IT Technician & Custom PC Specialist | Independent IT and Services Professional
+Jun 2023 - Mar 2026
+- Diagnosed and resolved hardware/software malfunctions for 30+ individual clients, maintaining a 95% first-visit resolution rate and minimizing system downtime.
+- Built and configured 50+ custom high-performance PCs, managing everything from component selection to thermal stress testing to ensure 100% system stability.
+- Boosted system performance by an average of 40% for clients by executing strategic hardware upgrades (SSDs, RAM) and optimizing OS startup configurations.
+- Ensured 100% data integrity during complex OS migrations and malware removals, successfully recovering over 5TB of critical client data without loss.
+- Reduced client procurement costs by 15-20% by providing expert consulting on price-to-performance component selection and sourcing deals.
+
+Database Administrator & Cloud Architect | Chonche Cafe
 Jan 2023 - May 2023
-- Architected and managed a MySQL production database on AWS RDS with Multi-AZ deployment.
-- Optimized SQL queries and indexing strategies to improve response time and reduce cloud cost.
-- Automated daily database backups and point-in-time recovery protocols.
+- Architected and managed a MySQL production database on AWS RDS, utilizing Multi-AZ deployment to increase system uptime from 95% to 99.5%.
+- Optimized SQL query execution plans and implemented indexing strategies, reducing average server response times by 40% and decreasing monthly cloud compute costs by 20%.
+- Automated daily database backups and point-in-time recovery (PITR) protocols, ensuring 100% data durability and zero-loss during high-traffic periods.
+- Developed stored procedures to automate weekly inventory reporting, saving 10+ hours of manual data entry per month.
 
-Junior Systems & Database Analyst, Houston Hot Breads
+Junior Systems & Database Analyst | Houston Hot Breads
 Jan 2021 - Dec 2022
-- Performed SQL performance audits and refactored slow queries.
-- Designed a modernized MySQL schema for improved scalability and reporting.
-- Created DFDs and UI mockups to support stakeholder communication.
+- Performed SQL performance audits on existing customer loyalty systems, identifying bottlenecks and refactoring queries to improve transaction speed by 20%.
+- Analyzed business requirements to design a modernized MySQL schema that supported a 15% increase in concurrent user sessions.
+- Created detailed Data Flow Diagrams (DFDs) and UI mockups, accelerating the project approval cycle by 30% through effective stakeholder communication.
+- Conducted technical feasibility studies for database scalability, evaluating constraints and mitigating risks related to data integrity and system migration.
 
-Full-Stack Web Developer, Community Family Center & Bread of Life
+Full-Stack Web Developer | Community Family Center (CFC) & Bread of Life
 Jan 2022 - May 2022
-- Built data workflows using MongoDB, Express, Vue.js, Node.js, Bootstrap, and Git.
-- Migrated legacy nonprofit data into a centralized relational model.
-- Designed matching logic and CRUD operations to improve record management.
+- Project: Consolidated Data Platform for Nonprofits
+- Technologies: MongoDB, Express, Vue.js, Node.js, Bootstrap, Git
+- Led the migration of legacy nonprofit data into a centralized MySQL relational database, improving data consistency and reporting accuracy by 45%.
+- Designed complex SQL joins and matching logic to synchronize 5,000+ client records, increasing successful cross-platform data matching rates by 30%.
+- Engineered a Node.js backend to facilitate real-time CRUD operations on the MySQL database, reducing manual data reconciliation work by 40%.
+- Maintained technical documentation and ERDs in a team-based Git environment, ensuring seamless collaboration and version control for database schemas.
 
-Education
+EDUCATION
 University of Houston
 Bachelor of Science, Computer and Information Systems Security/Information Assurance
 Aug 2020 - May 2023
-Cum Laude | Academic Excellence Scholarship Recipient | Dean's List
+- Cum Laude
+- Academic Excellence Scholarship Recipient
+- Dean's List
+
+TECHNICAL TOOLKIT
+Languages & Querying: SQL, JavaScript, HTML, CSS
+Databases: MySQL, MongoDB, AWS RDS, Relational schema design
+Backend: Node.js, Express, REST API design, CRUD workflows
+Frontend: Vue.js, Bootstrap, Responsive HTML/CSS, UI mockups
+Data & Analysis: Excel, ERDs, DFDs, Reconciliation reports, Exception analysis
+Workflow: Git, Technical documentation, Audit logs, Cross-functional handoffs
+
+CONTINUED LEARNING GOALS (NOT EARNED CERTIFICATIONS)
+AWS Cloud Practitioner — Learning goal
+Strengthens the cloud architecture and AWS RDS side of my database background.
+SQL Certification — Learning goal
+Provides third-party validation for advanced querying, optimization, and data analysis.
+CompTIA Security+ — Learning goal
+Connects my CIS security background with financial controls, access review, and risk mitigation.
+
+Portfolio: https://kyledelapena.github.io

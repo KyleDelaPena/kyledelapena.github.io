@@ -1,0 +1,36 @@
+{
+  "generator": "kyle-portfolio-static",
+  "version": 2,
+  "siteUrl": "https://kyledelapena.github.io/",
+  "noindex": false,
+  "pages": [
+    "index.html",
+    "experience.html",
+    "education.html",
+    "projects.html",
+    "case-studies.html",
+    "toolkit.html",
+    "skills/revenue-integrity-leakage-identification/index.html",
+    "skills/advanced-sql/index.html",
+    "skills/database-administration/index.html",
+    "skills/cloud-architecture-system-scalability/index.html",
+    "skills/financial-risk-mitigation-audit-compliance/index.html",
+    "skills/data-analysis-visualization/index.html",
+    "skills/full-stack-development/index.html",
+    "skills/database-migration-schema-modernization/index.html",
+    "skills/technical-documentation-erd-design/index.html",
+    "skills/cross-functional-collaboration/index.html",
+    "skills/automation/index.html",
+    "skills/frontend-technologies/index.html",
+    "skills/version-control-collaboration/index.html",
+    "skills/technical-feasibility-studies-risk-mitigation/index.html",
+    "skills/crud-operation-engineering/index.html"
+  ],
+  "counts": {
+    "skills": 15,
+    "projects": 5,
+    "caseStudies": 3,
+    "experience": 5
+  },
+  "contentSha256": "57312a9076520f1fbe640936851f86d13342f5919fad99dc3f748e9ff3a473d5"
+}

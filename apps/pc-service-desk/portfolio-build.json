@@ -1,0 +1,33 @@
+{
+  "app": "pc-service-desk",
+  "title": "PC Service Desk",
+  "basePath": "/apps/pc-service-desk",
+  "sourceSha256": "530e093f081dac70be974b00c11d349b24a33791389c6228c6f2f591a798d623",
+  "dependencies": {
+    "@expo/metro-runtime": "~58.0.15",
+    "@expo/vector-icons": "^15.0.2",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "expo": "~58.0.20",
+    "expo-dev-client": "~58.0.16",
+    "expo-document-picker": "~58.0.4",
+    "expo-file-system": "~58.0.12",
+    "expo-font": "~58.0.10",
+    "expo-linear-gradient": "~58.0.3",
+    "expo-print": "~58.0.7",
+    "expo-sharing": "~58.0.20",
+    "expo-splash-screen": "~58.0.11",
+    "expo-status-bar": "~58.0.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.0",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-svg": "15.16.0",
+    "react-native-web": "~0.21.4"
+  },
+  "storageKeys": [
+    "kyle-portfolio:pc-service-desk:workspace:v1",
+    "kyle-portfolio:pc-service-desk:last-good:v1"
+  ],
+  "pcBackupImport": false,
+  "source": "integrations/pc-service-desk"
+}
