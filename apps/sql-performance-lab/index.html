@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SQL Performance Lab — Kyle Dela Pena</title>
+  <meta name="description" content="Run real SQLite queries, inspect query plans, and test indexes on a repeatable fictional retail database.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#111c2a">
+  <link rel="canonical" data-portfolio-canonical href="https://kyledelapena.github.io/apps/sql-performance-lab/">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./src/styles.css">
+  <script type="module" src="./src/app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+  <header class="topbar">
+    <a class="wordmark" href="./index.html" aria-label="SQL Performance Lab home"><span class="brand-icon" aria-hidden="true">↗</span><span>SQL<span class="brand-light"> / PERFORMANCE LAB</span></span></a>
+    <a class="portfolio-link" href="../../projects.html#sql-performance-lab">← Kyle’s portfolio <span aria-hidden="true">↗</span></a>
+  </header>
+  <div class="app-layout">
+    <aside class="sidebar" aria-label="Experiments">
+      <div class="rail-label">THE EXPERIMENTS <span>03</span></div>
+      <div id="experiment-list" class="experiment-list"></div>
+      <div class="rail-note"><span class="tiny-orbit" aria-hidden="true"></span><strong>A real database.<br>A controlled experiment.</strong><p>Change the query. Add an index. Let the plan and the measurements tell the story.</p></div>
+      <div class="rail-footer"><span class="status-dot" aria-hidden="true"></span> Runs on your device<br><span>No account. No data uploads.</span></div>
+    </aside>
+    <main id="workspace" tabindex="-1">
+      <div class="intro">
+        <div><p class="eyebrow">DATABASE ENGINEERING / INTERACTIVE WORKSPACE</p><h1>Make the plan prove it<span>.</span></h1><p class="intro-copy">Turn a slow query into a measured decision. Explore real query plans,<br class="desktop-break"> test an index, and verify that the answers still match.</p></div>
+        <div class="engine-badge"><span class="status-dot" aria-hidden="true"></span><div><strong id="engine-version">SQLite · WebAssembly</strong><span>In-memory / browser-local</span></div></div>
+      </div>
+      <section class="dataset-panel" aria-labelledby="dataset-title">
+        <div class="dataset-identity"><span class="dataset-icon" aria-hidden="true">▤</span><div><h2 id="dataset-title">Retail operations</h2><p>Generated sample data <span>·</span> Fixed seed 74219</p></div></div>
+        <div class="dataset-numbers"><div><strong>2,000</strong><span>customers</span></div><div><strong id="order-count">50,000</strong><span>orders</span></div><div><strong id="item-count">100,000</strong><span>line items</span></div></div>
+        <div class="dataset-controls"><label for="dataset-size">Dataset size</label><select id="dataset-size"><option value="10000">10k orders · small</option><option value="50000" selected>50k orders · standard</option><option value="150000">150k orders · large</option></select><button id="regenerate" class="button secondary" type="button">Rebuild data</button></div>
+      </section>
+      <div id="activity" class="activity" role="status" aria-live="polite"><span id="activity-text">Starting the database engine…</span><progress id="activity-progress" max="100" value="0" aria-label="Database progress"></progress><button id="cancel" class="text-button" type="button" hidden>Cancel</button></div>
+      <div id="error" class="message error" role="alert" hidden></div><div id="storage-notice" class="message" role="status" hidden></div>
+      <nav class="workspace-tabs" aria-label="Lab views"><button class="view-tab active" data-view="compare" aria-current="page">Query workbench</button><button class="view-tab" data-view="schema">Schema explorer</button><button class="view-tab" data-view="history">Run history <span id="history-count">0</span></button><button class="view-tab" data-view="guide">How it works</button></nav>
+      <section id="view-compare" class="view-panel">
+        <div class="experiment-heading"><div><p class="eyebrow" id="experiment-skill"></p><h2 id="experiment-title"></h2><p id="experiment-summary"></p></div><span class="experiment-level" id="experiment-level"></span></div>
+        <div class="query-grid">
+          <section class="query-card"><div class="query-heading"><div><span class="variant-dot baseline-dot"></span><h3>Baseline</h3></div><span>No added indexes</span></div><label class="sr-only" for="baseline-sql">Baseline SQL</label><textarea id="baseline-sql" class="sql-editor" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="editor-help"></textarea><div class="query-footer"><span>SELECT / WITH · read only</span><button id="inspect" class="text-button" type="button">Inspect baseline ↗</button></div></section>
+          <section class="query-card"><div class="query-heading"><div><span class="variant-dot candidate-dot"></span><h3>Candidate</h3></div><span>SQL + proposed indexes</span></div><label class="sr-only" for="candidate-sql">Candidate SQL</label><textarea id="candidate-sql" class="sql-editor" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="editor-help"></textarea><div class="query-footer"><span>SELECT / WITH · read only</span><button id="restore" class="text-button" type="button">Restore example</button></div></section>
+        </div>
+        <p id="editor-help" class="editor-help">Both queries are editable. Compare complete results up to 10,000 rows; previews show the first 100. Tab moves to the next control.</p>
+        <section class="index-card"><div><h3><span aria-hidden="true">＋</span> Candidate indexes</h3><p>Created only for candidate samples.<br>Baseline samples start without them.</p></div><label class="sr-only" for="index-sql">Candidate index SQL</label><textarea id="index-sql" class="index-editor" spellcheck="false" autocapitalize="off" autocomplete="off"></textarea></section>
+        <div class="run-bar"><p><strong>7 samples per query.</strong> Alternating order. One warm-up before each sample.</p><button id="compare" class="button primary" type="button"><span aria-hidden="true">▷</span> Run comparison</button></div>
+        <div class="learning-note"><span aria-hidden="true">i</span><p id="experiment-lesson"></p></div>
+        <section id="inspection" hidden></section>
+        <section id="results" aria-label="Comparison results" hidden></section>
+        <div id="empty-result" class="empty-result"><div class="empty-chart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><h3>Your next optimization starts here.</h3><p>Run a comparison to see the plans, timing samples, and result checks.</p></div>
+      </section>
+      <section id="view-schema" class="view-panel" hidden><div class="section-heading"><p class="eyebrow">KNOW THE DATA</p><h2>Four tables. One retail workflow.</h2><p>Every record is fictional. Integer cents keep revenue calculations exact for this dataset.</p></div><div class="schema-flow" aria-label="Relationships"><span>customers</span><b>1 → many</b><span>orders</span><b>1 → many</b><span>order_items</span><b>many → 1</b><span>products</span></div><div id="schema-cards" class="schema-grid"></div><details class="raw-schema"><summary>View complete CREATE TABLE statements</summary><pre id="schema-sql"></pre></details><p class="method-note">Orders and line items have matching totals. Dates span January 2025 through December 2026. Generated foreign keys are valid, and each order has two line items. Only primary-key indexes exist before an experiment.</p></section>
+      <section id="view-history" class="view-panel" hidden><div class="section-heading history-heading"><div><p class="eyebrow">YOUR EXPERIMENT LOG</p><h2>Run history</h2><p>The last eight comparisons stay in this browser when storage is available.</p></div><button id="clear-history" class="button secondary" type="button">Clear history</button></div><div id="history-list"></div><section id="history-detail" hidden></section></section>
+      <section id="view-guide" class="view-panel" hidden><div class="section-heading"><p class="eyebrow">MEASUREMENT BEFORE CLAIMS</p><h2>What this lab measures</h2><p>A small, repeatable environment for practicing database decisions.</p></div><div class="guide-grid"><article class="guide-card"><span>01 / ENGINE</span><h3>Real SQL, on your device</h3><p>The official SQLite WebAssembly engine runs in a Web Worker, so queries execute separately from the interface. The database lives in memory and is rebuilt when you reload. No server or account is required.</p><p>This is SQLite, with <code>EXPLAIN QUERY PLAN</code>. It does not report MySQL EXPLAIN ANALYZE results, actual rows scanned, or production performance.</p></article><article class="guide-card"><span>02 / METHOD</span><h3>Repeated, warmed samples</h3><p>Each comparison uses seven samples per variant in alternating order. Every sample gets one unrecorded warm-up after its schema is set. Timings include statement preparation, execution, and materializing all returned rows.</p><p>Index construction, ANALYZE, hashing, rendering, and worker messaging are excluded. Index creation time is reported separately, including ANALYZE. Timer precision, browser load, and in-memory caching affect results.</p></article><article class="guide-card"><span>03 / CORRECTNESS</span><h3>Fast is useful when answers match</h3><p>All column names and typed row values are compared, retaining duplicates and ignoring row order. SHA-256 fingerprints are included in exported reports. A different row order alone passes; a different answer fails.</p><p>This check proves equality only for this generated dataset. It cannot prove two queries equivalent for every possible input.</p></article><article class="guide-card"><span>04 / TRADEOFFS</span><h3>An index has a cost</h3><p>Indexes consume space and add write work. The lab reports occupied SQLite pages and measured index creation time, but does not benchmark inserts, concurrency, disk I/O, network delay, or a production server.</p><p>Plans can change with engine versions and data. Read the raw plan rather than assuming every scan is bad or every index is better.</p></article></div><div class="docs-links"><h3>Primary references</h3><a href="https://sqlite.org/eqp.html" target="_blank" rel="noreferrer">SQLite query plans ↗</a><a href="https://sqlite.org/queryplanner.html" target="_blank" rel="noreferrer">Query planning & indexes ↗</a><a href="https://sqlite.org/wasm/doc/trunk/index.md" target="_blank" rel="noreferrer">SQLite WebAssembly ↗</a></div></section>
+      <footer class="workspace-footer"><span>BUILT BY KYLE DELA PENA</span><span>SQL · Query planning · Data validation · Performance analysis</span></footer>
+    </main>
+  </div>
+  <dialog id="confirm-dialog" aria-labelledby="confirm-title"><form method="dialog"><h2 id="confirm-title">Clear saved run history?</h2><p>This removes this lab’s saved comparisons in this browser. Export any reports you want to keep first.</p><div class="dialog-actions"><button class="button secondary" value="cancel" autofocus>Keep history</button><button class="button primary" value="confirm">Clear history</button></div></form></dialog>
+  <noscript><p class="message error">Enable JavaScript to run the SQLite database and use this lab.</p></noscript>
+</body></html>

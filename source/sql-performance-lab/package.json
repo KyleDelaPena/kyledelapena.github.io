@@ -1,0 +1,13 @@
+{
+  "name": "sql-performance-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Real SQLite query plans and repeatable browser benchmarks for Kyle Dela Pena's portfolio.",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "python3 -m http.server 8087 --bind 127.0.0.1 --directory dist"
+  },
+  "engines": { "node": ">=24" }
+}
