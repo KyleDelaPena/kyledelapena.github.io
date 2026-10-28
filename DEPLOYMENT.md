@@ -21,3 +21,9 @@ The canonical portfolio generator and the two Expo source snapshots are maintain
 The clock follows the selected location and forecast date, with noon at the top and midnight below. Teal major periods and gold minor periods can be highlighted from the accessible period list. The current-time hand appears only on the selected spot’s current day. The clock uses the existing SunCalc calculations and clearly labeled estimates; third-party clock values are not scraped. It follows the portfolio’s light surfaces, serif headings, navy text, and teal accents.
 
 63 forecast tests, 92 portfolio tests, 18 clock browser checks, and seven final integration checks passed. TypeScript checks and web/iOS/Android exports passed for the local app. No physical-device tests or signed native builds were performed.
+
+## Detailed hourly grid — October 28, 2026
+
+Fishing Forecaster now includes a 14-row weather/marine forecast grid with one/two-day comparisons, 1-hour/3-hour sampling, knots, fixed row labels, night shading, wind/temperature color bands, direction arrows, keyboard navigation, and selected-hour summaries. New Open-Meteo fields provide clouds, precipitation and wave direction. Rain amounts remain preceding-hour totals in either view. Sea level is modeled global MSL, without invented tide-station high/low times. Legacy version-2 caches remain readable; missing added fields show unavailable.
+
+77 forecast tests, 92 portfolio tests, 20 hourly browser checks, and six final integration checks passed. TypeScript and web/iOS/Android exports passed for the local app. Signed native builds and physical-device tests were not performed.
