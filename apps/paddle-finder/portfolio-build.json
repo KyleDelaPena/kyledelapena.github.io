@@ -1,0 +1,90 @@
+{
+  "app": "paddle-finder",
+  "title": "Paddle Finder demo",
+  "basePath": "/apps/paddle-finder",
+  "canonicalUrl": "https://kyledelapena.github.io/apps/paddle-finder/",
+  "preparedAt": "2026-10-28T19:39:04+00:00",
+  "releaseState": "prepared-for-portfolio-publication",
+  "runtime": "Static HTML/CSS/JavaScript with bundled JSON; browser filtering, sorting, comparison and CSV export",
+  "importedRuntimeFileCount": 4,
+  "packagedFileCount": 6,
+  "sourceFiles": {
+    "index.html": {
+      "sha256": "114248ebcd5a510d275d9366aafcf5c0b46c526fc816a975fc759a726f6d1f94",
+      "sizeBytes": 9787
+    },
+    "app.js": {
+      "sha256": "4a1a010fdc078408befef92b5982cfb940c3508b733dc87f44db047b8c02f150",
+      "sizeBytes": 37426
+    },
+    "styles.css": {
+      "sha256": "e275f0accd201f24d45c81b0f392bd47ac161ff3706ade7ba11362d1880ef848",
+      "sizeBytes": 34948
+    },
+    "data/paddles.json": {
+      "sha256": "50ec175e6a68743eae4ac165a502caf9d7957d53a5a3c1c7b42abb3503fde663",
+      "sizeBytes": 988362
+    }
+  },
+  "files": {
+    "index.html": {
+      "sha256": "d2abd4dc8d97596447bc3290c5eff4055d92216483d797f3e6eed6aeb4ef251d",
+      "sizeBytes": 10011
+    },
+    "app.js": {
+      "sha256": "4a28fe19d1a251cf0a395f2203475d7c61a417917516e16bb0ac7423baf056b4",
+      "sizeBytes": 37390
+    },
+    "styles.css": {
+      "sha256": "e275f0accd201f24d45c81b0f392bd47ac161ff3706ade7ba11362d1880ef848",
+      "sizeBytes": 34948
+    },
+    "data/paddles.json": {
+      "sha256": "907324583c87c9e343b5b43edfe687da932ea746133745005ffea0aa558ec79d",
+      "sizeBytes": 988411
+    },
+    "README.md": {
+      "sha256": "e944d37332d3df28cf4f9d57761109bf6173647227a253de4b604ce6aed84bb5",
+      "sizeBytes": 2185
+    }
+  },
+  "dataset": {
+    "rowCount": 493,
+    "brandCount": 85,
+    "numericFieldCount": 37,
+    "categoryFieldCount": 14,
+    "totalFilterableFieldCount": 51,
+    "completeKewcorCurveRows": 222,
+    "baseSource": {
+      "sourceName": "John Kew Pickleball Paddle Database",
+      "sourceUrl": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSxXXe0qvh94nPoU20S7OSp8yw9tHF4f4VpfNH_fneBhKSSOxvvrQ9lPGwgcNa_OS9OuWTZzaDyZWiZ/pub?gid=575894669&single=true&output=csv",
+      "fetchedAt": "2026-10-28T16:22:11+00:00",
+      "sourceSha256": "40a706a09ecb3d42d25d7452e8890349f834083cd5eb13112460bdf395e6ae32"
+    },
+    "curveSource": {
+      "sourceUrl": "https://docs.google.com/spreadsheets/d/1xet-q5iP5Mvs-kk8acsxRsMCrBOPQ8_DevpVjiUzll4/gviz/tq?tqx=out:csv&sheet=Curves",
+      "fetchedAt": "2026-10-28T19:18:35+00:00",
+      "sourceSha256": "e80ccf6815cd941beef58ed1fd82d06f624987366b74312df5a1a705bce7f731"
+    },
+    "snapshotType": "portfolio-demo-snapshot",
+    "liveSync": false,
+    "sourcePermission": "not-granted"
+  },
+  "portfolioBacklink": "../../projects.html#paddle-finder",
+  "robots": "noindex,follow",
+  "externalRuntimeResources": [
+    "https://fonts.googleapis.com",
+    "https://fonts.gstatic.com"
+  ],
+  "excludedArtifacts": [
+    "raw source CSVs",
+    "local importer",
+    "Python server",
+    "test artifacts",
+    "credentials",
+    "personal filesystem paths"
+  ],
+  "sourceSha256": "20ba9566702ff7da23ccc5b6638aaa9f68e2b496c4765943296c1bf70018abf6",
+  "sourceHashMethod": "SHA-256 over the four reviewed source runtime files in ascending relative-path order; for each file append its UTF-8 relative path, one NUL byte, then the exact source file bytes.",
+  "storageKeys": []
+}

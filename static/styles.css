@@ -36,4 +36,4 @@ html[data-theme="dark"] { --page:#10252d; --surface:#17313a; --ink:#e4ede6; --mu
 .demo-progress progress::-moz-progress-bar{background:var(--teal)}
 @media(max-width:520px){.demo-note{font-size:10px}.demo-utilities button{font-size:10px}}
 
-@media(min-width:1200px){.application-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.application-copy{padding:24px}.application-copy h3{font-size:25px}}
+@media(min-width:1200px){.application-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}.application-copy{padding:24px}.application-copy h3{font-size:25px}}
