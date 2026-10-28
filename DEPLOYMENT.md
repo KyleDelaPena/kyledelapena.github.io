@@ -29,3 +29,9 @@ Fishing Forecaster now includes a 14-row weather/marine forecast grid with one/t
 77 forecast tests, 92 portfolio tests, 20 hourly browser checks, and six final integration checks passed. TypeScript and web/iOS/Android exports passed for the local app. Signed native builds and physical-device tests were not performed.
 
 Hourly time labels now use 12-hour AM/PM formatting, including selected-hour summaries, native display labels, tooltips and guide examples. Midnight displays as 12:00 AM and noon as 12:00 PM. Forecast sampling and timezones are preserved.
+
+## Weather artwork — October 28, 2026
+
+The large coastal illustration now follows the selected forecast condition and location-based day/night. Clouds, rain, snow, storms, fog, and nighttime moon scenes replace the fixed sun, while unavailable conditions use neutral scenery. Date selection changes the artwork and condition label together. Existing AM/PM times and provider requests are retained.
+
+83 forecast tests, TypeScript checks, six portfolio integration tests, and 14 Chromium checks passed, including weather variants, date switching, phone/desktop layouts, and live-provider rendering. The personal app also exports web/iOS/Android successfully; no signed build or physical-device test was performed.
