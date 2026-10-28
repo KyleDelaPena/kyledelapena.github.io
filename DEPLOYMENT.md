@@ -27,3 +27,5 @@ The clock follows the selected location and forecast date, with noon at the top 
 Fishing Forecaster now includes a 14-row weather/marine forecast grid with one/two-day comparisons, 1-hour/3-hour sampling, knots, fixed row labels, night shading, wind/temperature color bands, direction arrows, keyboard navigation, and selected-hour summaries. New Open-Meteo fields provide clouds, precipitation and wave direction. Rain amounts remain preceding-hour totals in either view. Sea level is modeled global MSL, without invented tide-station high/low times. Legacy version-2 caches remain readable; missing added fields show unavailable.
 
 77 forecast tests, 92 portfolio tests, 20 hourly browser checks, and six final integration checks passed. TypeScript and web/iOS/Android exports passed for the local app. Signed native builds and physical-device tests were not performed.
+
+Hourly time labels now use 12-hour AM/PM formatting, including selected-hour summaries, native display labels, tooltips and guide examples. Midnight displays as 12:00 AM and noon as 12:00 PM. Forecast sampling and timezones are preserved.
