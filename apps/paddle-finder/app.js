@@ -8,8 +8,9 @@
   const missing = value => value===null||value===undefined||(typeof value==='string'&&!value.trim());
   const validKey = key => typeof key==='string'&&/^[A-Za-z][A-Za-z0-9_]*$/.test(key);
   const unknown='__missing__';
-  const state={data:null,metrics:[],categories:[],paddles:[],filtered:[],search:'',categoriesFilter:{},thickness:'',ranges:{},dates:{},addedFields:new Set(),sort:'handSpeed',direction:'desc',sorts:[{key:'handSpeed',direction:'desc'}],page:1,pageSize:15,selected:new Set(),preset:'hands'};
+  const state={data:null,metrics:[],categories:[],paddles:[],filtered:[],search:'',categoriesFilter:{},thickness:'',ranges:{},dates:{},addedFields:new Set(),sort:'handSpeed',direction:'desc',sorts:[{key:'handSpeed',direction:'desc'}],page:1,pageSize:15,selected:new Set(),preset:'hands',imageCatalog:{},imageCatalogStatus:'loading',failedPhotos:new Set()};
   let toastTimer;
+  let photoReturnFocus=null,photoReturnContainer=null;
   const metric=key=>state.metrics.find(item=>item.key===key);
   const category=key=>state.categories.find(item=>item.key===key);
   const fields=()=>[...state.categories,...state.metrics];
@@ -31,6 +32,57 @@
   }
   function toast(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>{$('#toast').hidden=true;},3400);}
   function openDialog(id){const dialog=$(`#${id}`);if(!dialog.open)dialog.showModal();}
+  function safeImagePath(value){
+    if(typeof value!=='string')return null;
+    const path=value.replace(/^\.\//,'');
+    if(!/^assets\/paddles\/[A-Za-z0-9._/-]+\.(?:png|jpe?g|webp|avif)$/i.test(path)||path.split('/').some(segment=>!segment||segment==='.'||segment==='..'))return null;
+    return './'+path;
+  }
+  function photoSource(entry){
+    for(const value of [entry?.sourcePage,entry?.sourceUrl]){try{const url=new URL(value);if(url.protocol==='https:'&&!url.username&&!url.password)return url;}catch{}}
+    return null;
+  }
+  function verifiedPhoto(id){
+    const entry=state.imageCatalog[id],path=safeImagePath(entry?.path);
+    return entry&&path&&!state.failedPhotos.has(id)?{...entry,path}:null;
+  }
+  function unavailablePhoto(p,context='table'){
+    return `<span class="paddle-photo-unavailable ${context==='comparison'?'comparison-photo':''}" data-photo-unavailable="${escape(p.id)}" aria-label="Photo unavailable for ${escape(p.brand)} ${escape(p.model)}"><span>Photo<br>unavailable</span></span>`;
+  }
+  function photoMarkup(p,context='table'){
+    const entry=verifiedPhoto(p.id);if(!entry)return unavailablePhoto(p,context);
+    const label=`${p.brand||''} ${p.model||''}${numeric(p.thickness)?' · '+p.thickness+' mm':''}`.trim();
+    return `<button type="button" class="paddle-photo-button ${context==='comparison'?'comparison-photo':''}" data-photo-open="${escape(p.id)}" data-photo-context="${context}" aria-label="View product photo of ${escape(label)}"><img class="paddle-photo" data-photo-id="${escape(p.id)}" data-photo-state="loading" src="${escape(entry.path)}" alt="${escape(entry.alt||label+' pickleball paddle')}" loading="lazy" decoding="async" width="44" height="66"></button>`;
+  }
+  async function loadImageCatalog(){
+    try{
+      const response=await fetch('./data/paddle-images.json',{cache:'no-cache'});if(!response.ok)throw new Error('Photo catalog unavailable');
+      const catalog=await response.json();if(!catalog||!catalog.images||typeof catalog.images!=='object'||Array.isArray(catalog.images))throw new Error('Invalid photo catalog');
+      state.imageCatalog=catalog.images;state.imageCatalogStatus='ready';
+    }catch{state.imageCatalog={};state.imageCatalogStatus='unavailable';}
+    document.body.dataset.photoCatalogState=state.imageCatalogStatus;
+  }
+  function openPhoto(id){
+    const paddle=state.paddles.find(p=>p.id===id),entry=verifiedPhoto(id);if(!paddle||!entry)return;
+    photoReturnFocus=document.activeElement;photoReturnContainer=photoReturnFocus?.closest('td,th');
+    $('#photo-title').textContent=paddle.model||'Paddle photo';
+    $('#photo-subtitle').textContent=[paddle.brand,numeric(paddle.thickness)?paddle.thickness+' mm core':null,paddle.shape].filter(Boolean).join(' · ');
+    const img=$('#photo-dialog-image');img.alt=entry.alt||`${paddle.brand} ${paddle.model} pickleball paddle`;img.dataset.photoId=id;img.dataset.photoState='loading';img.hidden=false;img.src=entry.path;
+    $('#photo-status').textContent='Loading product photo…';$('#photo-status').hidden=false;
+    const source=photoSource(entry);$('#photo-credit').innerHTML=source?`Product photo · <a href="${escape(source.href)}" target="_blank" rel="noopener noreferrer">${escape(entry.credit||entry.sourceName||source.hostname)} ↗</a>`:'Product photo from the matched local image catalog.';
+    openDialog('photo-dialog');$('#photo-dialog .close-dialog').focus();
+  }
+  function handlePhotoError(img){
+    const id=img.dataset.photoId;if(!id)return;state.failedPhotos.add(id);
+    const paddle=state.paddles.find(p=>p.id===id);
+    if(paddle)$$('[data-photo-open]').filter(button=>button.dataset.photoOpen===id).forEach(button=>{button.outerHTML=unavailablePhoto(paddle,button.dataset.photoContext);});
+    if($('#photo-dialog-image').dataset.photoId===id){$('#photo-dialog-image').hidden=true;$('#photo-status').textContent='Photo unavailable. This product image could not be loaded.';$('#photo-status').hidden=false;}
+    img.dataset.photoState='error';
+  }
+  function photoSourceNote(){
+    const count=state.paddles.filter(p=>verifiedPhoto(p.id)).length;
+    return `<h3>Product photos</h3><p>${state.imageCatalogStatus==='ready'?`${count.toLocaleString()} of ${state.paddles.length.toLocaleString()} entries have matched product photos in the local catalog. Photos retain their original colors and proportions. Open a photo for its source credit.`:'The optional product-photo catalog is unavailable. Paddle measurements still work.'} Unmatched or failed photos are labeled “Photo unavailable”; no substitute model or variant is shown.</p>`;
+  }
   function metadataNotes(){const raw=state.data?.metadata?.notes;return Array.isArray(raw)?raw.filter(Boolean).map(String):raw?[String(raw)]:[];}
   function prepareSchema(data){
     const defaults=[['handSpeed','Hand speed','/ 100','desc'],['swingWeight','Swing weight','','asc'],['spin','Spin','RPM','desc'],['power','Power','mph','desc'],['pop','Pop','mph','desc'],['twistWeight','Twist weight','','desc'],['balance','Balance point','cm','asc'],['weight','Static weight','oz','asc'],['thickness','Core thickness','mm','desc'],['price','Retail price','$','asc'],['firepower','Firepower','/ 100','desc']];
@@ -48,7 +100,8 @@
   async function loadData(){
     $('#error-state').hidden=true;$('#empty-state').hidden=true;$('#table-body').innerHTML='<tr><td class="loading-state" colspan="8">Loading the numbers…</td></tr>';
     try{
-      const response=await fetch('./data/paddles.json',{cache:'no-cache'});if(!response.ok)throw new Error(`Data request returned ${response.status}.`);
+      document.body.dataset.photoCatalogState='loading';
+      const [response]=await Promise.all([fetch('./data/paddles.json',{cache:'no-cache'}),loadImageCatalog()]);if(!response.ok)throw new Error(`Data request returned ${response.status}.`);
       const data=await response.json();if(!data||!Array.isArray(data.paddles)||!data.paddles.length)throw new Error('No paddle records were found in the data snapshot.');
       state.data=data;state.paddles=data.paddles.map((paddle,index)=>({...paddle,id:String(paddle.id??index)}));prepareSchema(data);
       const hasHands=!!metric('handSpeed');state.sort=hasHands?'handSpeed':metric('swingWeight')?'swingWeight':fields()[0]?.key||'model';state.direction=hasHands?'desc':field(state.sort)?.direction||'asc';state.sorts=[{key:state.sort,direction:state.direction}];
@@ -173,10 +226,9 @@
     $('#active-filters').innerHTML=active.map(item=>`<button class="active-filter-chip" data-clear-filter="${escape(item.key)}" aria-label="Clear ${escape(item.text)}">${escape(item.text)} <span aria-hidden="true">×</span></button>`).join('');
     $$('[data-clear-filter]').forEach(button=>button.addEventListener('click',()=>{clearField(button.dataset.clearFilter);$('#reset-filters').focus({preventScroll:true});}));
     const modelRank=state.sorts.findIndex(level=>level.key==='model');$('#table-head').innerHTML=`<tr><th class="select-cell"><span aria-hidden="true">＋</span><span class="sr-only">Compare</span></th><th ${modelRank>0?`aria-label="Paddle name, sort priority ${modelRank+1}, ${escape(orderLabel(state.sorts[modelRank]))}"`:''} ${state.sort==='model'?`aria-sort="${state.direction==='asc'?'ascending':'descending'}"`:''}><button data-sort="model">Paddle ${modelRank>=0?`<span class="sort-priority-badge" aria-hidden="true">${modelRank+1}</span>`:''} <span class="sort-mark" aria-hidden="true">${state.sort==='model'?(state.direction==='asc'?'↑':'↓'):'↕'}</span></button></th>${visibleFields.map(key=>{const item=field(key);const rank=state.sorts.findIndex(level=>level.key===key);return `<th class="${item.type==='numeric'?'numeric':'category-column'}" ${rank>0?`aria-label="${escape(item.label)}, sort priority ${rank+1}, ${escape(orderLabel(state.sorts[rank]))}"`:''} ${state.sort===key?`aria-sort="${state.direction==='asc'?'ascending':'descending'}"`:''}><button data-sort="${escape(key)}">${escape(item.label)}${rank>=0?` <span class="sort-priority-badge" aria-hidden="true">${rank+1}</span>`:''}<span class="sort-mark" aria-hidden="true">${state.sort===key?(state.direction==='asc'?'↑':'↓'):'↕'}</span></button><small>${escape(item.unit||'')}</small></th>`;}).join('')}</tr>`;
-    const colors=['#2c493a','#647457','#323c36','#8e9b73','#6a7664','#5f6b49'];
     $('#table-body').innerHTML=visible.map((p,index)=>{
       const name=p.model||'Unnamed paddle',brand=p.brand||'Unknown brand',chosen=state.selected.has(p.id);
-      return `<tr class="${chosen?'selected':''}" data-paddle-id="${escape(p.id)}"><td class="select-cell"><input type="checkbox" data-compare="${escape(p.id)}" aria-label="Compare ${escape(brand)} ${escape(name)}" ${chosen?'checked':''}></td><td class="paddle-cell"><div class="paddle-info"><span class="paddle-mini" style="--paddle-color:${colors[(start+index)%colors.length]}" aria-hidden="true"></span><div><a class="paddle-model" href="${escape(safeUrl(p.sourceUrl||state.data.metadata?.sourceUrl))}" target="_blank" rel="noopener noreferrer" title="View ${escape(name)} at the data source">${escape(name)}</a><div class="paddle-brand">${escape(brand)}${p.shape?`<span class="shape-badge">${escape(p.shape)}</span>`:''}${numeric(p.thickness)?`<span>${escape(format(p.thickness,'thickness'))} mm</span>`:''}${p.condition&&p.condition.toLowerCase()!=='new'?`<span class="condition-badge">${escape(p.condition)}</span>`:''}</div>${rowBadges(p)}</div></div></td>${visibleFields.map(key=>{
+      return `<tr class="${chosen?'selected':''}" data-paddle-id="${escape(p.id)}"><td class="select-cell"><input type="checkbox" data-compare="${escape(p.id)}" aria-label="Compare ${escape(brand)} ${escape(name)}" ${chosen?'checked':''}></td><td class="paddle-cell"><div class="paddle-info">${photoMarkup(p)}<div><a class="paddle-model" href="${escape(safeUrl(p.sourceUrl||state.data.metadata?.sourceUrl))}" target="_blank" rel="noopener noreferrer" title="View ${escape(name)} at the data source">${escape(name)}</a><div class="paddle-brand">${escape(brand)}${p.shape?`<span class="shape-badge">${escape(p.shape)}</span>`:''}${numeric(p.thickness)?`<span>${escape(format(p.thickness,'thickness'))} mm</span>`:''}${p.condition&&p.condition.toLowerCase()!=='new'?`<span class="condition-badge">${escape(p.condition)}</span>`:''}</div>${rowBadges(p)}</div></div></td>${visibleFields.map(key=>{
         const value=p[key],item=field(key);if(missing(value)||item.type==='numeric'&&!numeric(value))return `<td class="${item.type==='numeric'?'numeric':'category-column'}"><span class="null-value" title="Not available in source data">—</span></td>`;
         if(key==='handSpeed')return `<td class="numeric speed-cell"><span class="metric-value">${format(value,key)}</span><span class="speed-bar" aria-hidden="true"><i style="width:${Math.max(0,Math.min(100,value))}%"></i></span></td>`;
         return `<td class="${item.type==='numeric'?'numeric':'category-column'} ${key==='price'?'price-cell':''}">${escape(formatField(value,key))}</td>`;
@@ -194,11 +246,11 @@
   function updateComparison(){const paddles=selectedPaddles();$('#nav-compare-count').textContent=paddles.length;$('#compare-tray').hidden=!paddles.length;$('#compare-tray-title').textContent=`Your shortlist · ${paddles.length} of 3`;$('#compare-tray-names').textContent=paddles.map(p=>p.model).join('  ·  ');$('#open-comparison').textContent=`Compare ${paddles.length===1?'paddle':'paddles'} →`;}
   function buildComparison(){
     const paddles=selectedPaddles();if(!paddles.length){$('#comparison-content').innerHTML='<div class="comparison-empty"><p>Your shortlist is waiting.<br>Select up to three paddles using the checkboxes in the explorer.</p><button class="button button-primary" data-close="comparison-dialog">Explore paddles</button></div>';return;}
-    $('#comparison-content').innerHTML=`<table><thead><tr><th>At a glance</th>${paddles.map(p=>`<th><span class="comparison-brand">${escape(p.brand)}</span><a class="comparison-paddle" href="${escape(safeUrl(p.sourceUrl||state.data.metadata?.sourceUrl))}" target="_blank" rel="noopener noreferrer">${escape(p.model)} ↗</a><button class="comparison-remove" data-remove="${escape(p.id)}">Remove</button></th>`).join('')}</tr></thead><tbody>${fields().map(item=>`<tr><td>${escape(item.key==='durabilityTier'?'Grit durability':item.label)}${item.unit&&item.key!=='price'?` <span class="metric-unit">${escape(item.unit)}</span>`:''}</td>${paddles.map(p=>`<td>${escape(formatField(p[item.key],item.key))}</td>`).join('')}</tr>`).join('')}</tbody></table><p class="comparison-note">All ${fields().length} imported fields are shown. A dash means the source does not include this measurement. Different metrics describe different tradeoffs.</p>`;
+    $('#comparison-content').innerHTML=`<table><thead><tr><th>At a glance</th>${paddles.map(p=>`<th>${photoMarkup(p,'comparison')}<span class="comparison-brand">${escape(p.brand)}</span><a class="comparison-paddle" href="${escape(safeUrl(p.sourceUrl||state.data.metadata?.sourceUrl))}" target="_blank" rel="noopener noreferrer">${escape(p.model)} ↗</a><button class="comparison-remove" data-remove="${escape(p.id)}">Remove</button></th>`).join('')}</tr></thead><tbody>${fields().map(item=>`<tr><td>${escape(item.key==='durabilityTier'?'Grit durability':item.label)}${item.unit&&item.key!=='price'?` <span class="metric-unit">${escape(item.unit)}</span>`:''}</td>${paddles.map(p=>`<td>${escape(formatField(p[item.key],item.key))}</td>`).join('')}</tr>`).join('')}</tbody></table><p class="comparison-note">All ${fields().length} imported fields are shown. A dash means the source does not include this measurement. Different metrics describe different tradeoffs.</p>`;
     $$('[data-remove]').forEach(button=>button.addEventListener('click',()=>toggleCompare(button.dataset.remove)));
   }
   function buildSource(){
-    const meta=state.data?.metadata||{};$('#source-content').innerHTML=`<p>This portfolio demo explores measurements from <a href="${escape(safeUrl(meta.sourceUrl))}" target="_blank" rel="noopener noreferrer">${escape(meta.sourceName||'John Kew Pickleball')} ↗</a>. It is an independent project and is not affiliated with or endorsed by John Kew.</p><div class="source-context"><strong>Demo data</strong><p>This demo uses a bundled snapshot. It does not update live. Missing data stays empty; no values or durability tiers are estimated.</p>${metadataNotes().map(note=>`<p>${escape(note)}</p>`).join('')}</div><h3>Every imported field</h3>${fields().map(item=>`<div class="metric-definition"><strong>${escape(item.key==='durabilityTier'?'Grit durability':item.label)}${item.unit?' · '+escape(item.unit):''}</strong><p>${escape(item.description||`${item.label} as reported in the source dataset.`)}</p></div>`).join('')}<p>Prices reflect the source snapshot and can change. Always confirm current product details with the original source.</p>`;
+    const meta=state.data?.metadata||{};$('#source-content').innerHTML=`<p>This portfolio demo explores measurements from <a href="${escape(safeUrl(meta.sourceUrl))}" target="_blank" rel="noopener noreferrer">${escape(meta.sourceName||'John Kew Pickleball')} ↗</a>. It is an independent project and is not affiliated with or endorsed by John Kew.</p><div class="source-context"><strong>Demo data</strong><p>This demo uses a bundled snapshot. It does not update live. Missing data stays empty; no values or durability tiers are estimated.</p>${metadataNotes().map(note=>`<p>${escape(note)}</p>`).join('')}</div>${photoSourceNote()}<h3>Every imported field</h3>${fields().map(item=>`<div class="metric-definition"><strong>${escape(item.key==='durabilityTier'?'Grit durability':item.label)}${item.unit?' · '+escape(item.unit):''}</strong><p>${escape(item.description||`${item.label} as reported in the source dataset.`)}</p></div>`).join('')}<p>Prices reflect the source snapshot and can change. Always confirm current product details with the original source.</p>`;
   }
   function csvValue(value){let text=String(value??'');if(typeof value==='string'&&/^[=+\-@]/.test(text))text="'"+text;return '"'+text.replace(/"/g,'""')+'"';}
   function exportCSV(){const columns=[...fields(),{key:'sourceRow',label:'Source row'},{key:'sourceUrl',label:'Source URL'}],csv=[columns.map(item=>csvValue(item.key==='durabilityTier'?'Grit durability':item.label)).join(','),...state.filtered.map(p=>columns.map(item=>csvValue(p[item.key])).join(','))].join('\r\n'),url=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'})),link=document.createElement('a');link.href=url;link.download='paddle-finder-shortlist.csv';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast(`Exported ${state.filtered.length} filtered paddle${state.filtered.length===1?'':'s'} with all ${fields().length} fields.`);}
@@ -211,6 +263,10 @@
   $$('.preset').forEach(button=>button.addEventListener('click',()=>{const preset=button.dataset.preset,key=preset==='hands'?(metric('handSpeed')?'handSpeed':'swingWeight'):preset==='spin'?'spin':'power';if(!metric(key)){toast('This measurement is not available in the data snapshot.');return;}state.sort=key;state.direction=preset==='hands'&&key==='swingWeight'?'asc':'desc';state.preset=preset;state.sorts=[{key:state.sort,direction:state.direction}];state.page=1;render();}));
   for(const id of ['nav-source','hero-source','footer-source'])$(`#${id}`).addEventListener('click',()=>{if(state.data)openDialog('source-dialog');else toast('Data source: johnkewpickleball.com/paddle-database');});
   for(const id of ['nav-compare','open-comparison'])$(`#${id}`).addEventListener('click',()=>{buildComparison();openDialog('comparison-dialog');});$('#clear-comparison').addEventListener('click',()=>{state.selected.clear();render();});
+  document.addEventListener('click',event=>{const button=event.target.closest('[data-photo-open]');if(button)openPhoto(button.dataset.photoOpen);});
+  document.addEventListener('error',event=>{if(event.target instanceof HTMLImageElement&&event.target.dataset.photoId)handlePhotoError(event.target);},true);
+  document.addEventListener('load',event=>{const img=event.target;if(img instanceof HTMLImageElement&&img.dataset.photoId){img.dataset.photoState='loaded';if(img.id==='photo-dialog-image')$('#photo-status').hidden=true;}},true);
+  $('#photo-dialog').addEventListener('close',()=>{const target=photoReturnFocus?.isConnected?photoReturnFocus:photoReturnContainer?.querySelector('a,button')||$('#comparison-dialog[open] .close-dialog')||$('#search');target?.focus({preventScroll:true});});
   document.addEventListener('click',event=>{const button=event.target.closest('[data-close]');if(button)$(`#${button.dataset.close}`).close();});$$('dialog').forEach(dialog=>dialog.addEventListener('click',event=>{if(event.target===dialog){const bounds=dialog.getBoundingClientRect();if(event.clientX<bounds.left||event.clientX>bounds.right||event.clientY<bounds.top||event.clientY>bounds.bottom)dialog.close();}}));
   document.addEventListener('keydown',event=>{if(event.key==='/'&&!event.ctrlKey&&!event.metaKey&&!event.altKey&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)&&!$$('dialog').some(dialog=>dialog.open)){event.preventDefault();$('#search').focus();}});$('#export-csv').addEventListener('click',exportCSV);$('#retry-data').addEventListener('click',loadData);loadData();
 })();
