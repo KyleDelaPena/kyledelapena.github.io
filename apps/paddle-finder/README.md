@@ -16,4 +16,6 @@ This package contains no raw input CSVs, local import scripts, Python server, br
 
 Table thumbnails and comparison photos open a larger view with a link to the original photo listing. Photos come from the John Kew product-photo catalog and reviewed manufacturer/retailer listings; `data/paddle-images.json` retains per-row model identity, source URLs, original-byte hashes, and packaged image hashes. These are actual source product images, with no AI-generated paddle illustrations. Stock colors can vary.
 
+Table and comparison thumbnails use validated content bounds from the photo catalog to remove empty source margins and show paddles at a consistent height, while preserving their proportions. Complex photos without reliable bounds use the full frame. The larger photo view retains the original framing.
+
 The 465 unique images are bundled as WebP files under `assets/paddles/`, proportionally resized to at most 900 pixels. Browsing makes no image requests to retailers or manufacturers. Lazy loading limits photo requests to the visible table, and failed images retain an explicit unavailable label. Measurements and the 51 sortable/filterable fields are unchanged.

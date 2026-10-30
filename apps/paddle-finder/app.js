@@ -49,10 +49,17 @@
   function unavailablePhoto(p,context='table'){
     return `<span class="paddle-photo-unavailable ${context==='comparison'?'comparison-photo':''}" data-photo-unavailable="${escape(p.id)}" aria-label="Photo unavailable for ${escape(p.brand)} ${escape(p.model)}"><span>Photo<br>unavailable</span></span>`;
   }
+  function thumbnailFraming(entry){
+    const b=entry.thumbnailBounds,w=entry.width,h=entry.height;
+    if(!b||![w,h,b.x,b.y,b.width,b.height].every(numeric)||w<=0||h<=0||b.x<0||b.y<0||b.width<=0||b.height<=0||b.x+b.width>w||b.y+b.height>h)return {mode:'original',style:''};
+    // Fit the paddle's content bounds so blank source margins do not shrink it.
+    return {mode:'content',style:`--photo-source-width:${w};--photo-source-height:${h};--photo-crop-left:${b.x};--photo-crop-top:${b.y};--photo-crop-width:${b.width};--photo-crop-height:${b.height}`};
+  }
   function photoMarkup(p,context='table'){
     const entry=verifiedPhoto(p.id);if(!entry)return unavailablePhoto(p,context);
     const label=`${p.brand||''} ${p.model||''}${numeric(p.thickness)?' · '+p.thickness+' mm':''}`.trim();
-    return `<button type="button" class="paddle-photo-button ${context==='comparison'?'comparison-photo':''}" data-photo-open="${escape(p.id)}" data-photo-context="${context}" aria-label="View product photo of ${escape(label)}"><img class="paddle-photo" data-photo-id="${escape(p.id)}" data-photo-state="loading" src="${escape(entry.path)}" alt="${escape(entry.alt||label+' pickleball paddle')}" loading="lazy" decoding="async" width="44" height="66"></button>`;
+    const framing=thumbnailFraming(entry);
+    return `<button type="button" class="paddle-photo-button ${context==='comparison'?'comparison-photo':''}" data-photo-open="${escape(p.id)}" data-photo-context="${context}" aria-label="View product photo of ${escape(label)}"><span class="paddle-photo-frame" data-photo-framing="${framing.mode}" style="${framing.style}"><img class="paddle-photo" data-photo-id="${escape(p.id)}" data-photo-state="loading" src="${escape(entry.path)}" alt="${escape(entry.alt||label+' pickleball paddle')}" loading="lazy" decoding="async" width="44" height="66"></span></button>`;
   }
   async function loadImageCatalog(){
     try{

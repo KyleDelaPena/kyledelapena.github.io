@@ -1892,12 +1892,12 @@
   },
   "files": {
     "README.md": {
-      "sha256": "d6e93967bd4bb27eedde6410835da795ae9a5bc21cf115126d546894f7262ad1",
-      "sizeBytes": 3382
+      "sha256": "72be27f6c57169cab4c31550311f7bdf9ce8263d28f27b16e95edc93af8cb3c0",
+      "sizeBytes": 3686
     },
     "app.js": {
-      "sha256": "809757c6234cdd1aaa5607035e2426600acdb683493b600105501724552c83a2",
-      "sizeBytes": 42877
+      "sha256": "fd790725c712bb565719a850c7e9a40d12e8b8ca824f0b959806665778b0e6b8",
+      "sizeBytes": 43583
     },
     "assets/paddles/001569f768ddf1c941f5.webp": {
       "sha256": "8ca5389c6a08dc62bdda139a4e5951ef46e71b14daef3f897da84acc4a471cec",
@@ -3760,20 +3760,20 @@
       "sizeBytes": 70816
     },
     "data/paddle-images.json": {
-      "sha256": "700d95c36b75b252f6dbea7fdb396275a454c35fe827f3ec050c6053728c1002",
-      "sizeBytes": 558503
+      "sha256": "14b6258b022720bdc9db713a507926435d6ccff1cbfa8a5e7ad9639b019c6ecb",
+      "sizeBytes": 637083
     },
     "data/paddles.json": {
       "sha256": "907324583c87c9e343b5b43edfe687da932ea746133745005ffea0aa558ec79d",
       "sizeBytes": 988411
     },
     "index.html": {
-      "sha256": "b2a90fb6d18ed29a956ffbd44e3f64acebcf94f5c0a636eecf5bb09d3b30c078",
-      "sizeBytes": 10555
+      "sha256": "afe10b4ab46e5a04104822ce2f165d7e3892b553af6a423da7750f189099f4b0",
+      "sizeBytes": 10599
     },
     "styles.css": {
-      "sha256": "23f03746eb509271c406c4b90d1f418069e554f9199c408ac15caa606d3fc589",
-      "sizeBytes": 36430
+      "sha256": "46f18c3c031ee1dd81184eb65d3d15e30faa544b08a8b01e6a9b81c3e3cb47ad",
+      "sizeBytes": 37457
     }
   },
   "dataset": {
