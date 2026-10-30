@@ -53,3 +53,9 @@ Paddle Finder now shows matched product photos for 482 of 493 rows, with 11 expl
 Validation includes all bundled photo decodes, exact model/row identity, desktop/mobile zoom, keyboard focus, comparison photos, missing-catalog and failed-image recovery, and the existing filter/sort/API/export checks. The canonical source packager verifies and copies every manifest-listed asset.
 
 Release checks passed: 20 data/API unit tests, 26 filter/sort/comparison/export browser checks, 12 photo browser checks (including every unique image decode), 13 portfolio integration checks, and 94 canonical portfolio tests. The staged package contains 472 reviewed files and retains every original measurement row.
+
+## One-month fishing planner — October 30, 2026
+
+Fishing Forecaster now includes a month calendar, bounded week navigation and a Today shortcut. Planning spans today through the same date next month, clamping shorter months. SunCalc sun/moon events and estimated bite windows cover the full range. Open-Meteo requests up to 16 weather days and 8 marine days; actual returned rows determine coverage. Later dates clearly show sun and moon planning only, with no fabricated weather, waves or weather-based activity rating. Calendar, clock and hourly selection stay synchronized, and older saved forecasts gain calculated dates while retaining their exact original readings.
+
+89 forecast tests, 94 portfolio tests and 17 Chromium checks pass, including month boundaries, leap years, DST, units, five responsive widths, cached/offline behavior and live provider requests. The local personal app preserves its storage keys and passes TypeScript plus web/iOS/Android exports. No signed build or physical-device test was performed.

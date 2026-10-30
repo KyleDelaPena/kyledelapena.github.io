@@ -2,7 +2,7 @@
   "app": "fishing-forecaster",
   "title": "Fishing Forecaster",
   "basePath": "/apps/fishing-forecaster",
-  "sourceSha256": "4e8b07cb12d7fad5acd939e2cca9d383997efdfcf96912ab24799483e15cc7c0",
+  "sourceSha256": "c8be811300ab7ac3339369f15213fbf9e4084c45c12608c13e69e5e3a48a3c05",
   "dependencies": {
     "@expo/metro-runtime": "~58.0.15",
     "@expo/vector-icons": "^15.0.2",
