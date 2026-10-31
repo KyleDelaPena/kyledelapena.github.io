@@ -8,8 +8,8 @@
   <title>Paddle Finder demo — Kyle Dela Pena</title>
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" data-portfolio-canonical href="https://kyledelapena.github.io/apps/paddle-finder/">
-  <link rel="stylesheet" href="./styles.css?v=20261031-four-paddle-compare">
-  <script defer src="./app.js?v=20261031-four-paddle-compare"></script>
+  <link rel="stylesheet" href="./styles.css?v=20261031-frozen-comparison">
+  <script defer src="./app.js?v=20261031-frozen-comparison"></script>
 </head>
 <body>
   <a class="skip-link" href="#results">Skip to paddle results</a>
@@ -74,7 +74,7 @@
       <p id="comparison-search-status" role="status" aria-live="polite"></p>
       <ul id="comparison-search-results" aria-label="Paddles to add to comparison" hidden></ul>
     </section>
-    <div id="comparison-content"></div>
+    <div id="comparison-content" role="region" aria-label="Paddle comparison measurements" tabindex="0"></div>
   </dialog>
   <dialog id="source-dialog" aria-labelledby="source-title"><div class="dialog-header"><div><span class="eyebrow">BEHIND THE NUMBERS</span><h2 id="source-title">Good data. Clear context.</h2></div><button class="close-dialog" data-close="source-dialog" aria-label="Close data information">×</button></div><div id="source-content" class="source-content"></div></dialog>
   <dialog id="photo-dialog" aria-labelledby="photo-title" aria-describedby="photo-subtitle"><div class="dialog-header"><div><span class="eyebrow">PRODUCT PHOTO</span><h2 id="photo-title"></h2><p id="photo-subtitle"></p></div><button class="close-dialog" data-close="photo-dialog" aria-label="Close product photo">×</button></div><figure class="photo-stage"><img id="photo-dialog-image" alt="" decoding="async" hidden><figcaption id="photo-status" role="status" hidden>Photo unavailable.</figcaption></figure><p id="photo-credit"></p></dialog>

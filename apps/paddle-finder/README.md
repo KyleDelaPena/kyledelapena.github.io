@@ -6,6 +6,8 @@ The app includes 493 source entries from 85 brands, 37 numeric fields and 14 cat
 
 The explorer shows hand speed, KewCOR delta, firepower, spin, power, twist weight, and retail price by default. Paddle identity and core thickness remain alongside the photo. Active sort fields also appear as columns, without duplicates; the default stats remain visible after sorting, filtering, switching presets, or resetting. Hand speed, highest first, remains the initial sort.
 
+Comparison starts with KewCOR delta, KewCOR, hand speed, balance point, swing weight, twist weight, firepower, and spin, followed by every remaining imported field. Paddle-name headings stay frozen while the measurement table scrolls vertically or horizontally; the photos scroll away to leave more room for data.
+
 Measurements and source classifications are credited to [John Kew Pickleball](https://www.johnkewpickleball.com/paddle-database). This is an independent portfolio interface without source affiliation or endorsement. The footer labels the experience “Demo data”; the bundled records retain actual source values and missing entries. They are not synthetic fixtures or a live feed.
 
 Base data was downloaded on 2026-10-28 at 16:22:11 UTC. Supplemental centerline KewCOR data was downloaded at 19:18:35 UTC from the public feed used by the [Paddle Comparison Lab](https://www.johnkewpickleball.com/paddle-comparison-lab). All 493 original rows are retained; 222 have complete, exact-variant curve matches. Delta is the decimal range of the four source readings at 3, 4, 5 and 6 inches below the tip, with unknown or ambiguous matches left blank. Separate source hashes, timestamps, field maps, and matching outcomes remain in JSON metadata/provenance.
