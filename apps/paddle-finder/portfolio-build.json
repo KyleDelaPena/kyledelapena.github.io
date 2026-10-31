@@ -1892,12 +1892,12 @@
   },
   "files": {
     "README.md": {
-      "sha256": "9c39bc1618264b458fab8b81ce6b813b241051359462a2e30f6220cb3df7f2f4",
-      "sizeBytes": 4070
+      "sha256": "4413097ef8870203d3d690aee5126aa7221d14be413bf062e2df019b779e2a90",
+      "sizeBytes": 4301
     },
     "app.js": {
-      "sha256": "b8aa4dd7b27d6124cfe6a85815a77c90c9c29f591b4bf0d5f01dc7c0bc5bd735",
-      "sizeBytes": 43609
+      "sha256": "445b7ef35bd30c47f7b5299e7f09deecb87b493fbeb8468a9dc779075fa21709",
+      "sizeBytes": 47530
     },
     "assets/paddles/001569f768ddf1c941f5.webp": {
       "sha256": "8ca5389c6a08dc62bdda139a4e5951ef46e71b14daef3f897da84acc4a471cec",
@@ -3768,12 +3768,12 @@
       "sizeBytes": 988411
     },
     "index.html": {
-      "sha256": "5731e49b3743ea313eed64ea372bf215efafdadf825fc8bfff1b19baa72523e3",
-      "sizeBytes": 10602
+      "sha256": "af889096b3fba81b292e6fdc22655cc417e351ae249dea7e394a43c3d59b43be",
+      "sizeBytes": 11349
     },
     "styles.css": {
-      "sha256": "46f18c3c031ee1dd81184eb65d3d15e30faa544b08a8b01e6a9b81c3e3cb47ad",
-      "sizeBytes": 37457
+      "sha256": "94ca2d0e640a85bf7420459b4647f31b12f81447ca80a232a00b83fd48a5cd99",
+      "sizeBytes": 39599
     }
   },
   "dataset": {

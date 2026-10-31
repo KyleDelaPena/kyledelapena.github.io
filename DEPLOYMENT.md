@@ -38,7 +38,7 @@ The large coastal illustration now follows the selected forecast condition and l
 
 ## Paddle Finder demo — October 28, 2026
 
-`/apps/paddle-finder/` is a static portfolio app with combined category/numeric/date filters, spin-durability selection, multiple ordered sort levels, comparison of up to three paddles, and filtered CSV export. It exposes 37 numeric fields and 14 categorical/date fields across 493 source entries from 85 brands. KewCOR delta is the decimal range of actual centerline measurements at 3, 4, 5 and 6 inches below the tip; 222 entries have complete exact-variant matches, and missing or ambiguous matches stay empty.
+`/apps/paddle-finder/` is a static portfolio app with combined category/numeric/date filters, spin-durability selection, multiple ordered sort levels, comparison of up to four paddles with a full-catalog name search, and filtered CSV export. It exposes 37 numeric fields and 14 categorical/date fields across 493 source entries from 85 brands. KewCOR delta is the decimal range of actual centerline measurements at 3, 4, 5 and 6 inches below the tip; 222 entries have complete exact-variant matches, and missing or ambiguous matches stay empty.
 
 Serve the portfolio root with a static HTTP server to review the nested app. GitHub Pages uses the app’s `index.html`, `app.js`, `styles.css`, and bundled `data/paddles.json`; no Python runtime or API service is required. Filters, sorting and comparison run in page memory, without accounts or data uploads. Google Fonts supplies the typefaces. The app links back to `projects.html#paddle-finder`, includes its canonical URL, and follows the existing demos’ `noindex,follow` setting.
 

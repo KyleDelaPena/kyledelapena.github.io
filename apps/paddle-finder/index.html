@@ -8,8 +8,8 @@
   <title>Paddle Finder demo — Kyle Dela Pena</title>
   <meta name="robots" content="noindex,follow">
   <link rel="canonical" data-portfolio-canonical href="https://kyledelapena.github.io/apps/paddle-finder/">
-  <link rel="stylesheet" href="./styles.css?v=20261030-thumbnails">
-  <script defer src="./app.js?v=20261031-default-stats"></script>
+  <link rel="stylesheet" href="./styles.css?v=20261031-four-paddle-compare">
+  <script defer src="./app.js?v=20261031-four-paddle-compare"></script>
 </head>
 <body>
   <a class="skip-link" href="#results">Skip to paddle results</a>
@@ -53,7 +53,7 @@
             <div class="results-toolbar"><div class="search-box"><span aria-hidden="true">⌕</span><label class="sr-only" for="search">Search paddles or brands</label><input id="search" type="search" placeholder="Search paddles or brands…" autocomplete="off"><span class="search-key" aria-hidden="true">/</span></div><div class="sort-box"><label for="sort-metric">Sort by</label><select id="sort-metric" aria-label="Sort field"></select><button id="sort-direction" title="Reverse sort direction" aria-label="Reverse sort direction">↓</button></div></div>
             <section id="sort-editor" class="sort-editor" aria-labelledby="sort-editor-title"><div class="sort-editor-heading"><strong id="sort-editor-title">Sort priority</strong><span>Later fields break exact ties.</span></div><div id="sort-levels"></div><label class="sr-only" for="add-sort-field">Add another sort field</label><select id="add-sort-field"><option value="">Add another sort field…</option></select><p id="delta-note" class="delta-note" hidden></p></section>
             <div class="result-status"><span id="showing-count" role="status" aria-live="polite">Loading paddle data…</span><span id="sort-description">Hand speed · high to low</span></div>
-            <div class="table-scroll"><table id="paddle-table"><caption class="sr-only">Paddle measurements. Select a column heading to sort or choose up to three paddles to compare.</caption><thead id="table-head"></thead><tbody id="table-body"><tr><td class="loading-state">Loading the numbers<span class="loading-dots">…</span></td></tr></tbody></table></div>
+            <div class="table-scroll"><table id="paddle-table"><caption class="sr-only">Paddle measurements. Select a column heading to sort or choose up to four paddles to compare.</caption><thead id="table-head"></thead><tbody id="table-body"><tr><td class="loading-state">Loading the numbers<span class="loading-dots">…</span></td></tr></tbody></table></div>
             <div id="empty-state" class="empty-state" hidden><span aria-hidden="true">⌕</span><h3>No paddles in this sweet spot.</h3><p>Try a wider range or clear a filter to see more options.</p><button class="button button-primary" id="empty-reset">Reset filters</button></div>
             <div id="error-state" class="empty-state" hidden><h3>The paddle data couldn’t load.</h3><p id="error-message">Reload the page and try again.</p><button class="button button-primary" id="retry-data">Try again</button></div>
             <div class="table-footer"><span id="page-info">—</span><div class="pagination"><button id="previous-page" aria-label="Previous page" disabled>←</button><span id="page-number">1</span><button id="next-page" aria-label="Next page" disabled>→</button></div></div>
@@ -65,7 +65,17 @@
     </main>
   </div>
   <div id="compare-tray" class="compare-tray" hidden><div><strong id="compare-tray-title">Your shortlist</strong><span id="compare-tray-names"></span></div><button id="clear-comparison" class="text-button">Clear</button><button id="open-comparison" class="button button-primary">Compare paddles <span aria-hidden="true">→</span></button></div>
-  <dialog id="comparison-dialog" aria-labelledby="comparison-title"><div class="dialog-header"><div><span class="eyebrow">YOUR SHORTLIST</span><h2 id="comparison-title">The details, side by side.</h2></div><button class="close-dialog" data-close="comparison-dialog" aria-label="Close comparison">×</button></div><div id="comparison-content"></div></dialog>
+  <dialog id="comparison-dialog" aria-labelledby="comparison-title">
+    <div class="dialog-header"><div><span class="eyebrow">YOUR SHORTLIST</span><h2 id="comparison-title">The details, side by side.</h2></div><button class="close-dialog" data-close="comparison-dialog" aria-label="Close comparison">×</button></div>
+    <section class="comparison-search-panel" aria-labelledby="comparison-search-label">
+      <div class="comparison-search-heading"><label id="comparison-search-label" for="comparison-search">Add a paddle by name</label><span id="comparison-capacity"></span></div>
+      <input id="comparison-search" type="search" placeholder="Search paddle name or brand…" autocomplete="off" aria-describedby="comparison-search-hint comparison-search-status" aria-controls="comparison-search-results">
+      <p id="comparison-search-hint"></p>
+      <p id="comparison-search-status" role="status" aria-live="polite"></p>
+      <ul id="comparison-search-results" aria-label="Paddles to add to comparison" hidden></ul>
+    </section>
+    <div id="comparison-content"></div>
+  </dialog>
   <dialog id="source-dialog" aria-labelledby="source-title"><div class="dialog-header"><div><span class="eyebrow">BEHIND THE NUMBERS</span><h2 id="source-title">Good data. Clear context.</h2></div><button class="close-dialog" data-close="source-dialog" aria-label="Close data information">×</button></div><div id="source-content" class="source-content"></div></dialog>
   <dialog id="photo-dialog" aria-labelledby="photo-title" aria-describedby="photo-subtitle"><div class="dialog-header"><div><span class="eyebrow">PRODUCT PHOTO</span><h2 id="photo-title"></h2><p id="photo-subtitle"></p></div><button class="close-dialog" data-close="photo-dialog" aria-label="Close product photo">×</button></div><figure class="photo-stage"><img id="photo-dialog-image" alt="" decoding="async" hidden><figcaption id="photo-status" role="status" hidden>Photo unavailable.</figcaption></figure><p id="photo-credit"></p></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
