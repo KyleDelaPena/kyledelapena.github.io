@@ -1892,12 +1892,12 @@
   },
   "files": {
     "README.md": {
-      "sha256": "72be27f6c57169cab4c31550311f7bdf9ce8263d28f27b16e95edc93af8cb3c0",
-      "sizeBytes": 3686
+      "sha256": "9c39bc1618264b458fab8b81ce6b813b241051359462a2e30f6220cb3df7f2f4",
+      "sizeBytes": 4070
     },
     "app.js": {
-      "sha256": "fd790725c712bb565719a850c7e9a40d12e8b8ca824f0b959806665778b0e6b8",
-      "sizeBytes": 43583
+      "sha256": "b8aa4dd7b27d6124cfe6a85815a77c90c9c29f591b4bf0d5f01dc7c0bc5bd735",
+      "sizeBytes": 43609
     },
     "assets/paddles/001569f768ddf1c941f5.webp": {
       "sha256": "8ca5389c6a08dc62bdda139a4e5951ef46e71b14daef3f897da84acc4a471cec",
@@ -3768,8 +3768,8 @@
       "sizeBytes": 988411
     },
     "index.html": {
-      "sha256": "afe10b4ab46e5a04104822ce2f165d7e3892b553af6a423da7750f189099f4b0",
-      "sizeBytes": 10599
+      "sha256": "5731e49b3743ea313eed64ea372bf215efafdadf825fc8bfff1b19baa72523e3",
+      "sizeBytes": 10602
     },
     "styles.css": {
       "sha256": "46f18c3c031ee1dd81184eb65d3d15e30faa544b08a8b01e6a9b81c3e3cb47ad",

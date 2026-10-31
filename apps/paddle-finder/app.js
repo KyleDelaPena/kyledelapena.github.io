@@ -224,7 +224,7 @@
   function render(){
     if(!state.data)return;
     const focused=document.activeElement,focusCompare=focused?.dataset?.compare,focusSort=focused?.dataset?.sort,focusSortControl=focused?.dataset?.sortControl,primarySpeed=metric('handSpeed')?'handSpeed':'swingWeight';
-    const visibleFields=[...state.sorts.map(level=>level.key),primarySpeed,'spin','power','twistWeight','price'].filter((key,index,keys)=>key!=='model'&&field(key)&&keys.indexOf(key)===index);
+    const visibleFields=[...state.sorts.map(level=>level.key),primarySpeed,'kewcorDelta','firepower','spin','power','twistWeight','price'].filter((key,index,keys)=>key!=='model'&&field(key)&&keys.indexOf(key)===index);
     state.filtered=getFiltered();const total=state.filtered.length,pages=Math.max(1,Math.ceil(total/state.pageSize));state.page=Math.min(state.page,pages);
     const start=(state.page-1)*state.pageSize,visible=state.filtered.slice(start,start+state.pageSize),active=activeFilters();
     $('#result-count').textContent=total.toLocaleString();$('#showing-count').textContent=`${total.toLocaleString()} of ${state.paddles.length.toLocaleString()} paddles${active.length?' match your filters':''}`;
